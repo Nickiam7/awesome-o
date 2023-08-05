@@ -1,0 +1,5 @@
+<%= turbo_stream.update('chat-results') do %>
+  <%= card(classes: 'mt-5') do %>
+    <%= @results.dig("choices", 0, "message", "content").html_safe %>
+  <% end %>
+<% end %>

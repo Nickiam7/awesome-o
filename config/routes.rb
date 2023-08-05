@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
   get '/about', to: 'pages#about'
-  root to: 'pages#home'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+
+  resources :contents, path: :content do
+    collection do
+      get 'chat'
+    end
+  end
+  post '/gpt_chat', to: 'contents#gpt_chat'
+
+  root to: 'pages#home'
 end

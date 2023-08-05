@@ -1,0 +1,369 @@
+#awesome-o {
+  width: 3.125rem;
+  height: 3.125rem;
+  background-color: #af7e46;
+  border-radius: 0.125rem;
+  position: relative;
+
+  .awesome-o__buttons {
+    position: absolute;
+    display: flex;
+    right: 2px;
+
+    .button {
+      width: 4px;
+      height: 4px;
+      border-radius: 1px;
+      margin-top: 0.125rem;
+      margin-right: 0.025rem;
+      margin-left: 0.025rem;
+      background-color: #000000;
+
+      &--blue {
+        background-color: #3ba5c2;
+        border: 0.015rem solid darken(#3ba5c2, 25%)
+      }
+
+      &--yellow {
+        background-color: #e7d138;
+        border: 0.015rem solid darken(#e7d138, 25%)
+      }
+
+      &--orange {
+        background-color: #e0883a;
+        border: 0.015rem solid darken(#e0883a, 25%)
+      }
+    }
+  }
+
+  .awesome-o__accessories {
+    position: absolute;
+    width: 0.25rem;
+    height: 0.75rem;
+    background-color: #a09faa;
+    left: -0.25rem;
+    top: 5px;
+
+    .accessories--ear {
+      position: absolute;
+      width: 0.25rem;
+      height: 0.95rem;
+      background-color: #a09faa;
+      left: 54px;
+      top: 16px;
+    }
+
+    .accessories--antena1 {
+      top: -15px;
+      left: 2px;
+      height: 1rem;
+      width: 0.025rem;
+      position: absolute;
+      background: #0d0e0f;
+    }
+
+    .accessories--antena2 {
+      top: -14px;
+      left: -2px;
+      height: 1rem;
+      width: 0.025rem;
+      position: absolute;
+      background: #0d0e0f;
+      rotate: 330deg;
+    }
+
+    .accessories--lights {
+      .lights-red {
+        .red-light {
+          width: 14px;
+          height: 6px;
+          background-color: #ff273a;
+          border-radius: 10rem 10rem 0 0;
+          position: absolute;
+          bottom: 17px;
+          left: 12px;
+        }
+
+        .base {
+          position: absolute;
+          width: 1rem;
+          height: 0.15rem;
+          background-color: #a09faa;
+          bottom: 17px;
+          left: 11px;
+        }
+      }
+
+      .lights-green {
+        .green-light {
+          width: 0.5rem;
+          height: 0.65rem;
+          background-color: #7aff3d;
+          border-radius: 50% 50% 50% 50%/60% 60% 40% 40%;
+          position: absolute;
+          bottom: 17px;
+          left: 31px;
+        }
+
+        .base {
+          position: absolute;
+          width: 0.5rem;
+          height: 0.15rem;
+          background-color: #a09faa;
+          bottom: 17px;
+          left: 31px;
+        }
+      }
+    }
+
+  }
+
+  .awesome-o__eyes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .eye {
+      display: inline-block;
+      margin-top: 0.5rem;
+      width: 1rem;
+      height: 1.25rem;
+      background-color: #0d0e0f;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+
+      &--left {
+        rotate: 25deg;
+        margin-right: 0.025rem;
+      }
+
+      &--right {
+        rotate: -25deg;
+        margin-left: 0.025rem;
+      }
+    }
+  }
+
+  .awesome-o__mouth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+
+    .awesome-o__grill {
+      position: relative;
+      background-color: #5b5b5e;
+      width: 1.25rem;
+      height: 0.375rem;
+      border-radius: 0 0 8px 8px;
+      border: 1px solid $gray-500;
+
+      .grill {
+        position: absolute;
+        height: 0.25rem;
+        width: 2px;
+        background-color: $gray-500;
+
+        &.grill--1 {
+          left: 2px;
+        }
+
+        &.grill--2 {
+          left: 6px;
+        }
+
+        &.grill--3 {
+          left: 10px;
+        }
+
+        &.grill--4 {
+          left: 14px;
+        }
+      }
+    }
+  }
+}
+
+#awesome-o.gradient {
+  width: 3.125rem;
+  height: 3.125rem;
+  background-image: radial-gradient(circle at center center, rgb(225, 137, 68), rgb(150, 81, 54));
+  border-radius: 0.125rem;
+  position: relative;
+
+  .awesome-o__buttons {
+    position: absolute;
+    display: flex;
+    right: 2px;
+
+    .button {
+      width: 4px;
+      height: 4px;
+      border-radius: 1px;
+      margin-top: 0.125rem;
+      margin-right: 0.025rem;
+      margin-left: 0.025rem;
+      background-color: #000000;
+
+      &--blue {
+        background-color: #3ba5c2;
+        border: 0.015rem solid darken(#3ba5c2, 25%)
+      }
+
+      &--yellow {
+        background-color: #e7d138;
+        border: 0.015rem solid darken(#e7d138, 25%)
+      }
+
+      &--orange {
+        background-color: #e0883a;
+        border: 0.015rem solid darken(#e0883a, 25%)
+      }
+    }
+  }
+
+  .awesome-o__accessories {
+    position: absolute;
+    width: 0.25rem;
+    height: 0.75rem;
+    background-image: linear-gradient(0deg, rgb(160, 159, 170), rgb(130, 129, 138));
+    left: -0.25rem;
+    top: 5px;
+
+    .accessories--ear {
+      position: absolute;
+      width: 0.25rem;
+      height: 0.95rem;
+      background-image: linear-gradient(0deg, rgb(160, 159, 170), rgb(130, 129, 138));
+      left: 54px;
+      top: 16px;
+    }
+
+    .accessories--antena1 {
+      top: -15px;
+      left: 2px;
+      height: 1rem;
+      width: 0.025rem;
+      position: absolute;
+      background: #0d0e0f;
+    }
+
+    .accessories--antena2 {
+      top: -14px;
+      left: -2px;
+      height: 1rem;
+      width: 0.025rem;
+      position: absolute;
+      background: #0d0e0f;
+      rotate: 330deg;
+    }
+
+    .accessories--lights {
+      .lights-red {
+        .red-light {
+          width: 14px;
+          height: 6px;
+          background-image: radial-gradient(circle at center center, rgb(252, 155, 156), rgb(237, 122, 126), rgb(221, 89, 96), rgb(206, 56, 65), rgb(190, 23, 35));
+          border-radius: 10rem 10rem 0 0;
+          position: absolute;
+          bottom: 17px;
+          left: 12px;
+        }
+
+        .base {
+          position: absolute;
+          width: 1rem;
+          height: 0.15rem;
+          background-image: radial-gradient(circle at top center, rgb(243, 243, 243), rgb(133, 133, 133));
+          bottom: 17px;
+          left: 11px;
+        }
+      }
+
+      .lights-green {
+        .green-light {
+          width: 0.5rem;
+          height: 0.65rem;
+          background-image: radial-gradient(circle at center center, rgb(226, 254, 178), rgb(180, 230, 146), rgb(134, 206, 115), rgb(87, 182, 83), rgb(41, 158, 51));
+          border-radius: 50% 50% 50% 50%/60% 60% 40% 40%;
+          position: absolute;
+          bottom: 17px;
+          left: 31px;
+        }
+
+        .base {
+          position: absolute;
+          width: 0.5rem;
+          height: 0.15rem;
+          background-image: radial-gradient(circle at top center, rgb(243, 243, 243), rgb(133, 133, 133));
+          bottom: 17px;
+          left: 31px;
+        }
+      }
+    }
+
+  }
+
+  .awesome-o__eyes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .eye {
+      display: inline-block;
+      margin-top: 0.5rem;
+      width: 1rem;
+      height: 1.25rem;
+      background-image: radial-gradient(circle at center center, rgb(71, 71, 71), rgb(8, 8, 8));
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+
+      &--left {
+        rotate: 25deg;
+        margin-right: 0.025rem;
+      }
+
+      &--right {
+        rotate: -25deg;
+        margin-left: 0.025rem;
+      }
+    }
+  }
+
+  .awesome-o__mouth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+
+    .awesome-o__grill {
+      position: relative;
+      background-color: #5b5b5e;
+      width: 1.25rem;
+      height: 0.375rem;
+      border-radius: 0 0 8px 8px;
+      border: 1px solid $gray-500;
+
+      .grill {
+        position: absolute;
+        height: 0.25rem;
+        width: 2px;
+        background-color: $gray-500;
+
+        &.grill--1 {
+          left: 2px;
+        }
+
+        &.grill--2 {
+          left: 6px;
+        }
+
+        &.grill--3 {
+          left: 10px;
+        }
+
+        &.grill--4 {
+          left: 14px;
+        }
+      }
+    }
+  }
+}

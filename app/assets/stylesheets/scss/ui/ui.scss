@@ -1,2 +1,5 @@
-// Entry point for ui scss files.
-// Will be imported by ../app.scss.
+// layouts
+@import './layouts/content_chat';
+
+// components
+@import './components/logo';

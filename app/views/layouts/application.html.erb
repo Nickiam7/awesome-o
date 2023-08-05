@@ -11,7 +11,13 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
+  <body class="<%= controller_name %> <%= action_name %>">
+    <div class="bg-white p-3 border-bottom d-flex align-items-center">
+      <%= logo %>
+      <nav class="ms-5">
+        <%= link_to('Home', root_path) %>
+      </nav>
+    </div>
     <%= yield %>
   </body>
 </html>
