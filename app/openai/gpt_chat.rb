@@ -13,6 +13,7 @@ class GptChat < OpenaiApplication
           }
         ],
         temperature: params[:temperature].to_i,
+        n: 2
       }
     )
   end
