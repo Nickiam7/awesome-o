@@ -3,18 +3,21 @@
 class GptChat < OpenaiApplication
 
   def chat(params = {})
+    begin
     response = openai_client.chat(
       parameters: {
         model: params[:model],
+        n: params[:variations].to_i,
         messages: [
           {
             role: "user",
             content: params[:message]
           }
         ],
-        temperature: params[:temperature].to_i,
-        n: 2
+        temperature: params[:creativity].to_i
       }
     )
+    rescue
+    end
   end
 end

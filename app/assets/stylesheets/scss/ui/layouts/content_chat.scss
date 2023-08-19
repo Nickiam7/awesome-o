@@ -2,8 +2,8 @@
   display: flex;
 
   &__create {
-    height: calc(100vh - 5.25rem);
-    width: 25%;
+    height: calc(100vh - 4.125rem);
+    width: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,8 +12,10 @@
     top: 5.25rem;
 
     .create-panel {
-      height: 90%;
+      height: 100%;
       width: 100%;
+      border-radius: 0;
+      border: none;
     }
   }
 }

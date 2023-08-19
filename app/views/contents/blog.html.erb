@@ -1,0 +1,96 @@
+<main>
+<%= container(container: 'container-fluid px-0') do %>
+  <div>
+    <%= form_with(url: gpt_chat_path, class: 'layout') do |form| %>
+    <div class="layout__create flex-shrink-1">
+      <%= card(classes: 'shadow create-panel') do %>
+        <%= h(tag: 'h2', text: 'Create panel', classes: 'mb-3') %>
+          <div class="form-group">
+            <div class="d-flex align-items-center justify-content-between">
+              <%= form.label(:model, 'Model', class: 'mb-2') %>
+              <%= tooltip(placement: 'right',
+                classes: 'small',
+                message: 'Awesome-o uses ChatGPT-3.5-turbo by default. Pro users can use ChatGPT-4!'
+              ) %>
+            </div>
+            <%= form.select(:model,
+              options_for_select(
+                [
+                  ['GPT-3.5','gpt-3.5-turbo'],
+                  ['GPT-4', 'gpt-4']
+                ],
+                disabled: ['gpt-4']
+              ),
+              {},
+              class: 'form-select'
+            ) %>
+          </div>
+          <div class="form-group mt-5">
+            <div class="d-flex align-items-center justify-content-between">
+              <%= form.label(:creativity_slider, 'Creativity', class: 'mb-2') %>
+              <%= tooltip(placement: 'right',
+                classes: 'small',
+                message: 'How much creative freedom you want to give Awesome-o. The higher the number, the more eccentric (unpredictable) the results will be. We reccomend leaving it at 1.'
+              ) %>
+            </div>
+            <div class="d-flex align-items-center justify-content-between" data-controller="app">
+              <%= form.range_field(:creativity_slider,
+                min: 0,
+                max: 2,
+                step: 0.1,
+                class: 'form-range pe-3',
+                data: {
+                  'app-target': :range,
+                  'action': 'input->app#setRangeValue'
+                }
+              ) %>
+              <%= form.text_field(:creativity,
+                class: "form-control px-0 text-center",
+                style: 'width: 2.75rem;',
+                data: {
+                  'app-target': 'tempValueInput'
+                }
+              ) %>
+            </div>
+          </div>
+          <div class="form-group mt-5">
+            <div class="d-flex align-items-center justify-content-between">
+              <%= form.label('variations', class: 'mb-2') %>
+              <%= tooltip(placement: 'right',
+                classes: 'small',
+                message: 'How many variations of the blog post do you want Awesome-o to create for you? Must be a Pro user for more than 1 verson.'
+              ) %>
+            </div>
+            <div class="bg-light rounded border p-1 text-center">
+              <fieldset>
+                <legend class="visually-hidden">Choose the number of variations for this blog post</legend>
+                <%= form.radio_button(:variations, '1', class: 'btn-check', checked: true) %>
+                <%= form.label(:variations_1, '1x', class: 'btn') %>
+                <%= form.radio_button(:variations, '2', class: 'btn-check') %>
+                <%= form.label(:variations_2, '2x', class: 'btn') %>
+                <%= form.radio_button(:variations, '3', class: 'btn-check') %>
+                <%= form.label(:variations_3, '3x', class: 'btn') %>
+                <%= form.radio_button(:variations, '4', class: 'btn-check') %>
+                <%= form.label(:variations_4, '4x', class: 'btn') %>
+              </fieldset>
+            </div>
+          </div>
+          <div class="form-group mt-5">
+            <%= form.submit('Or something...', class: 'btn btn-success') %>
+          </div>
+      <% end %>
+    </div>
+    <div class="layout__main flex-grow-1">
+      <%= container do %>
+        <div id="chat-results">
+          <div class="form-group mt-5">
+            <%= form.label(:message, 'What?', class: 'visually-hidden') %>
+            <%= form.text_area(:message, placeholder: 'Tell Awesome-o what kind of blog post you want!', class: 'form-control h-100 border-0') %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+<% end %>
+</main>

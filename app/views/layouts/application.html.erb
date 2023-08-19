@@ -12,12 +12,7 @@
   </head>
 
   <body class="<%= controller_name %> <%= action_name %>">
-    <div class="bg-white p-3 border-bottom d-flex align-items-center">
-      <%= logo %>
-      <nav class="ms-5">
-        <%= link_to('Home', root_path) %>
-      </nav>
-    </div>
+    <%= render(partial: 'shared/top_navbar') %>
     <%= yield %>
   </body>
 </html>

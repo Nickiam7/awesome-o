@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import { Tooltip } from "bootstrap"
 
 class AppController extends Controller {
   static targets = [
@@ -8,6 +9,8 @@ class AppController extends Controller {
 
   connect() {
     this.setRangeValue()
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new Tooltip(tooltipTriggerEl))
   }
 
   setRangeValue() {

@@ -2,6 +2,5 @@
 
 module Logo
   class LogoComponent < ViewComponent::Base
-
   end
 end

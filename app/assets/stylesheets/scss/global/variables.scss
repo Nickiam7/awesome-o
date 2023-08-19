@@ -1,2 +1,22 @@
-// Add SCSS Variables Here
-// Will be imported by ./global.scss.
+// colors
+$primary_light: #fbfcfd;
+$primary_dark: #384555;
+$primary_green: #7ee787;
+
+$font-family-sans-serif: 'Comfortaa', cursive,
+  -apple-system,
+  system-ui,
+  "Segoe UI",
+  Roboto,
+  "Helvetica Neue",
+  "Noto Sans",
+  "Liberation Sans",
+  Arial,
+  sans-serif,
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  "Segoe UI Symbol",
+  "Noto Color Emoji" !default;
+
+// actions
+$primary_transition: all 200ms;

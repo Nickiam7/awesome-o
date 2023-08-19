@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   resources :contents, path: :content do
     collection do
-      get 'chat'
+      get 'blog'
+      get 'start'
+      get 'auto-awesome'
     end
   end
   post '/gpt_chat', to: 'contents#gpt_chat'

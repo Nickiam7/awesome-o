@@ -1,7 +1,9 @@
 class ContentsController < ApplicationController
-  def new;end
+  before_action :authenticate_user!
 
-  def chat;end
+  def new;end
+  def blog;end
+  def auto_awesome;end
 
   def gpt_chat
     chat_message = GptChat.new
@@ -14,7 +16,8 @@ class ContentsController < ApplicationController
     {
       model: params[:model],
       message: params[:message],
-      temperature: params[:temperature]
+      creativity: params[:creativity],
+      variations: params[:variations],
     }
   end
 end
