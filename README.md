@@ -1,24 +1,5 @@
-# README
+# Awesome-o AI
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A powerful and easy to use content creation tool for Bloggers and Online Marketers. With a simple prompt **Awesome-o** can create an engaging, accurate and fully SEO-optimized blog post for you in seconds. Additionally **Awesome-o** offers a full suite of SEO and Marketing tools to help speed-up and automate your content creation process.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- **Awesome-o** is currently in Alpha. We're hoping to roll out a public Beta at the beginning of Q3 this year.
