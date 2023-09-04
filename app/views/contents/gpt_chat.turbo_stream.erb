@@ -1,34 +1,27 @@
 <%= turbo_stream.replace('chat-results') do %>
-  <%= card(classes: 'mt-5') do %>
-    <% if @results.dig('error', 'message') %>
-      Sorry, something went wrong
-    <% else %>
-      <div>
-        <h2>Option 1</h2>
-        <%= @results.dig("choices", 0, "message", "content").html_safe %>
-        <%= @results["choices"].length %>
-      </div>
-      <% if @results["choices"].length > 1 %>
-      <div>
-        <h2>Option 2</h2>
-        <%= @results.dig("choices", 1, "message", "content").html_safe %>
-        <%= @results["choices"].length %>
-      </div>
-      <% end %>
-      <% if @results["choices"].length > 2 %>
-      <div>
-        <h2>Option 3</h2>
-        <%= @results.dig("choices", 2, "message", "content").html_safe %>
-        <%= @results["choices"].length %>
-      </div>
-      <% end %>
-      <% if @results["choices"].length > 3 %>
-      <div>
-        <h2>Option 3</h2>
-        <%= @results.dig("choices", 3, "message", "content").html_safe %>
-        <%= @results["choices"].length %>
-      </div>
-      <% end %>
+  <%= card do %>
+    <div>
+      <h2>Option 1</h2>
+      <%= @results.dig("choices", 0, "message", "content").html_safe %>
+      <%= @results.dig("choices").length %>
+    </div>
+    <% if @results.dig("choices").length > 1 %>
+    <div>
+      <h2>Option 2</h2>
+      <%= @results.dig("choices", 1, "message", "content").html_safe %>
+    </div>
+    <% end %>
+    <% if @results.dig("choices").length > 2 %>
+    <div>
+      <h2>Option 3</h2>
+      <%= @results.dig("choices", 2, "message", "content").html_safe %>
+    </div>
+    <% end %>
+    <% if @results.dig("choices").length > 3 %>
+    <div>
+      <h2>Option 3</h2>
+      <%= @results.dig("choices", 3, "message", "content").html_safe %>
+    </div>
     <% end %>
   <% end %>
 <% end %>

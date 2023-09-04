@@ -3,7 +3,7 @@ $primary_light: #fbfcfd;
 $primary_dark: #384555;
 $primary_green: #7ee787;
 
-$font-family-sans-serif: 'Comfortaa', cursive,
+$font-family-sans-serif: 'Comfortaa',
   -apple-system,
   system-ui,
   "Segoe UI",
@@ -20,3 +20,7 @@ $font-family-sans-serif: 'Comfortaa', cursive,
 
 // actions
 $primary_transition: all 200ms;
+
+$border-radius: .125rem;
+
+$form-range-track-bg: #dee2e6;

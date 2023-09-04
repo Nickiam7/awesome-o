@@ -15,9 +15,12 @@ class ContentsController < ApplicationController
   def chat_params
     {
       model: params[:model],
-      message: params[:message],
+      message: params[:message].strip,
       creativity: params[:creativity],
       variations: params[:variations],
+      keywords: params[:keywords].strip,
+      generate_title: params[:generate_title],
+      private_post: params[:private_post],
     }
   end
 end

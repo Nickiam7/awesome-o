@@ -1,21 +1,44 @@
-.layout {
-  display: flex;
+$padding: 1rem;
 
-  &__create {
-    height: calc(100vh - 4.125rem);
-    width: 20%;
+.walls {
+  display: flex;
+  overflow-y: hidden;
+
+  .wall {
+    height: calc(100vh - 4.625rem);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: sticky;
-    top: 5.25rem;
 
-    .create-panel {
-      height: 100%;
-      width: 100%;
-      border-radius: 0;
-      border: none;
+    &>* {
+      padding: $padding;
+    }
+
+    &__body {
+      flex-grow: 1;
+      overflow-y: scroll;
+    }
+
+    &__footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &--controls {
+      flex: 0 1 22.375rem;
+      background-color: #ffffff;
+
+      span[aria-expanded="true"] i:before {
+        content: '\F27C';
+      }
+    }
+
+    &--content {
+      flex: 0 1 50%;
+    }
+
+    &--activity {
+      flex: 1 1 25%;
     }
   }
 }

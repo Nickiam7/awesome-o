@@ -1,8 +1,28 @@
 body {
   height: auto;
+  padding-top: 4.625rem;
   background-color: $primary_light;
+  color: $primary_dark;
 }
 
 .btn-check+.btn:hover {
   background-color: $gray-200;
+}
+
+.turbo-progress-bar {
+  display: none;
+}
+
+.form-control,
+.form-check-input,
+.form-select {
+  &:focus {
+    border-color: $primary_dark;
+    box-shadow: none;
+  }
+}
+
+.form-check-input:checked {
+  background-color: lighten($primary_dark, 10%);
+  border-color: darken($primary_dark, 25%);
 }

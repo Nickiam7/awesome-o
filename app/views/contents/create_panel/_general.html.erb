@@ -1,0 +1,103 @@
+<div class="form-group mt-4">
+  <div class="d-flex align-items-center justify-content-between">
+    <%= form.label(:model, 'Model', class: 'mb-2') %>
+    <%= tooltip(placement: 'right',
+      classes: 'small',
+      message: 'Awesome-o uses ChatGPT-3.5-turbo by default.
+                Only Pro users can use ChatGPT-4!'
+    ) %>
+  </div>
+  <%= panel_item do %>
+    <%= form.select(:model,
+      options_for_select(
+        [
+          ['GPT-3.5','gpt-3.5-turbo'],
+          ['GPT-4', 'gpt-4']
+        ],
+        disabled: ['gpt-4']
+      ),
+      {},
+      class: 'form-select'
+    ) %>
+  <% end %>
+</div>
+<div class="form-group mt-4">
+  <div class="d-flex align-items-center justify-content-between">
+    <%= form.label(:creativity_slider, 'Creativity', class: 'mb-2') %>
+    <%= tooltip(placement: 'right',
+      classes: 'small',
+      message: 'How much creative freedom you want to give
+                Awesome-o. The higher the number, the more
+                unpredictable the results will
+                be. We reccomend leaving it at 1.'
+    ) %>
+  </div>
+  <div class="d-flex align-items-center justify-content-between bg-light rounded border p-1 shadow-sm" data-controller="app">
+    <%= form.range_field(:creativity_slider,
+      min: 0,
+      max: 2,
+      step: 0.1,
+      class: 'form-range pe-3',
+      data: {
+        'app-target': :range,
+        'action': 'input->app#setRangeValue'
+      }
+    ) %>
+    <%= form.label(:creativity, class: 'visually-hidden') %>
+    <%= form.text_field(:creativity,
+      class: "form-control px-0 text-center",
+      style: 'width: 2.75rem;',
+      data: {
+        'app-target': 'tempValueInput'
+      }
+    ) %>
+  </div>
+</div>
+<div class="form-group mt-4">
+  <div class="d-flex align-items-center justify-content-between">
+    <%= form.label('variations', class: 'mb-2') %>
+    <%= tooltip(placement: 'right',
+      classes: 'small',
+      message: 'How many variations of the blog post do you want
+                Awesome-o to create for you? Only Pro users can
+                generate more than 1 verson.'
+    ) %>
+  </div>
+  <div>
+    <%= panel_item do %>
+      <fieldset>
+        <legend class="visually-hidden">Choose the number of variations for this blog post</legend>
+        <%= form.radio_button(:variations, '1', class: 'btn-check', checked: true) %>
+        <%= form.label(:variations_1, '1x', class: 'btn') %>
+        <%= form.radio_button(:variations, '2', class: 'btn-check') %>
+        <%= form.label(:variations_2, '2x', class: 'btn') %>
+        <%= form.radio_button(:variations, '3', class: 'btn-check') %>
+        <%= form.label(:variations_3, '3x', class: 'btn') %>
+        <%= form.radio_button(:variations, '4', class: 'btn-check') %>
+        <%= form.label(:variations_4, '4x', class: 'btn') %>
+      </fieldset>
+    <% end %>
+  </div>
+</div>
+<div class="form-group mt-4">
+  <div class="d-flex align-items-center justify-content-between">
+    <%= form.label('Visibility', class: 'mb-2') %>
+    <%= tooltip(placement: 'right',
+      classes: 'small',
+      message: 'Do you want your post to be private or shared
+                with the community. Only Pro users can have
+                private posts.'
+    ) %>
+  </div>
+  <%= panel_item(classes: 'form-check form-switch d-flex justify-content-between') do %>
+    <%= form.label(:private_post, 'Set post to private', class: 'form-check-label') %>
+    <%= form.check_box(:private_post,
+      {
+        class: 'form-check-input',
+        role: :switch
+      },
+      'private',
+      'public'
+    ) %>
+  <% end %>
+</div>
