@@ -21,6 +21,8 @@ class ContentsController < ApplicationController
       keywords: params[:keywords].strip,
       generate_title: params[:generate_title],
       private_post: params[:private_post],
+      min_count: params[:min_count],
+      max_count: params[:max_count],
     }
   end
 end

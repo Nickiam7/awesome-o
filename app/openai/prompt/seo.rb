@@ -7,7 +7,7 @@ class Prompt::Seo
       if title_prompt == 'true'
         'Please include an SEO-friendly title for this post.'
       else
-        'Please do not generate a title'
+        'Please do not generate a title for this post.'
       end
     end
 

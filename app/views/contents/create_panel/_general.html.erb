@@ -81,6 +81,28 @@
 </div>
 <div class="form-group mt-4">
   <div class="d-flex align-items-center justify-content-between">
+    <%= form.label('Word count', class: 'mb-2') %>
+    <%= tooltip(placement: 'right',
+      classes: 'small',
+      message: 'Set a minimum and/or maximum word count for your post.
+                Please note, these are loose guideline for Awesome-o.
+                In order to generate the best post possible, Awesome-o
+                may not be able to strictly adhere to your provided range.'
+    ) %>
+  </div>
+  <%= panel_item(classes: 'd-flex justify-content-between') do %>
+    <div class="text-start pe-1">
+      <%= form.label(:min_count, 'Min', class: 'form-label mb-0 ps-1') %>
+      <%= form.text_field(:min_count, class: 'form-control') %>
+    </div>
+    <div class="text-start ps-1">
+      <%= form.label(:max_count, 'Max', class: 'form-label mb-0 ps-1') %>
+      <%= form.text_field(:max_count, class: 'form-control') %>
+    </div>
+  <% end %>
+</div>
+<div class="form-group mt-4">
+  <div class="d-flex align-items-center justify-content-between">
     <%= form.label('Visibility', class: 'mb-2') %>
     <%= tooltip(placement: 'right',
       classes: 'small',

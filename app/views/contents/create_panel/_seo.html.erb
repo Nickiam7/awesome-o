@@ -1,5 +1,33 @@
 <div class="form-group mt-4">
   <div class="d-flex align-items-center justify-content-between">
+    <%= form.label(:template, 'Template', class: 'mb-2') %>
+    <%= tooltip(placement: 'right',
+      classes: 'small',
+      message: 'Awesome-o has several blog post templates that have been
+                tested and proven to rank favorably in SERPs.'
+    ) %>
+  </div>
+  <%= panel_item do %>
+    <%= form.select(:template,
+      options_for_select(
+        [
+          ['Beginners Guide', 'beginners-guide'],
+          ['Case Study', 'case-study'],
+          ['Comparison', 'comparison'],
+          ['Facts', 'facts'],
+          ['Glossary', 'glossary'],
+          ['How-to','how-to'],
+          ['Listicle (list)', 'listicle'],
+          ['Product Review', 'product-review'],
+        ],
+      ),
+      { include_blank: "Select a template" },
+      class: 'form-select',
+    ) %>
+  <% end %>
+</div>
+<div class="form-group mt-4">
+  <div class="d-flex align-items-center justify-content-between">
     <%= form.label('Title?', class: 'mb-2') %>
     <%= tooltip(placement: 'right',
       classes: 'small',
