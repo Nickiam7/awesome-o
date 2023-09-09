@@ -1,0 +1,7 @@
+<%= content_for(@for) do %>
+  <h2 class="text-center fw-light my-3">
+    <%= @heading %>
+  </h2>
+  <%= content %>
+<% end %>
+<%= render(partial: "#{@path}/#{@for}") %>

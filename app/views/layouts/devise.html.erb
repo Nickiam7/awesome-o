@@ -11,7 +11,15 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="<%= "#{controller_name} #{action_name}" %> vh-100 pt-0 px-3 d-flex flex-column align-items-center justify-content-center">
+
+
+    <%= render(partial: 'shared/top_navbar') if registration_edit_view? %>
+    <div style="max-width: 600px; width: 100%;">
+      <div class="d-flex justify-content-center mb-3">
+        <%= logo unless registration_edit_view? %>
+      </div>
+      <%= yield %>
+    </div>
   </body>
 </html>
