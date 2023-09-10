@@ -1,5 +1,5 @@
 <%= form_container(for: :form_container,
-  heading: "Edit #{resource_name.to_s.humanize}",
+  heading: "Edit: #{current_user.username}",
   path: 'devise/shared'
 ) do %>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -22,6 +22,14 @@
         placeholder: 'example@email.com'
       ) %>
       <%= f.label(:email) %>
+    </div>
+
+    <div class="form-floating mb-3">
+      <%= f.text_field(:username,
+        class: 'form-control',
+        placeholder: 'username'
+      ) %>
+      <%= f.label(:username) %>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
