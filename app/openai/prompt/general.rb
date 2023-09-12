@@ -7,7 +7,7 @@ class Prompt::General
       if min.empty? && max.empty?
         return
       else
-        "Please create this post with a word count between #{min} and #{max} number of words"
+        "Please create this post with a word count between #{min} and #{max} number of words."
       end
 
       unless min.empty?

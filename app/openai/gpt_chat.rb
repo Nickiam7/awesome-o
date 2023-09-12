@@ -1,7 +1,6 @@
 #frozen_string_literal: true
 
 class GptChat < OpenaiApplication
-
   def chat(params = {})
     response = openai_client.chat(
       parameters: {
@@ -18,6 +17,7 @@ class GptChat < OpenaiApplication
                       #{Prompt::General.word_count(params[:min_count], params[:max_count])}\n
                       #{Prompt::Seo.title(params[:generate_title])}\n
                       #{Prompt::Seo.keywords(params[:keywords])}\n
+                      #{Prompt::Seo.template(params[:template])}\n
                      "
           }
         ],

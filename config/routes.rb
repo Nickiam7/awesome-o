@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
+
   get '/about', to: 'pages#about'
+
+  post '/gpt_chat', to: 'contents#gpt_chat'
 
   resources :contents, path: :content do
     collection do
@@ -9,8 +12,6 @@ Rails.application.routes.draw do
       get 'auto-awesome'
     end
   end
-
-  post '/gpt_chat', to: 'contents#gpt_chat'
 
   root to: 'pages#home'
 end

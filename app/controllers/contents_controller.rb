@@ -23,6 +23,7 @@ class ContentsController < ApplicationController
       private_post: params[:private_post],
       min_count: params[:min_count],
       max_count: params[:max_count],
+      template: params[:template],
     }
   end
 end

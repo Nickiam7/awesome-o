@@ -1,6 +1,6 @@
 #frozen_string_literal: true
 
-class Prompt::Seo
+module Prompt::Seo
   class << self
 
     def title(title_prompt)
@@ -17,5 +17,16 @@ class Prompt::Seo
       end
     end
 
+    def template(template)
+      templates[template.to_sym]
+    end
+
+    private
+
+    def templates
+      {
+        beginners_guide: Prompt::Templates.beginners_guide,
+      }
+    end
   end
 end
