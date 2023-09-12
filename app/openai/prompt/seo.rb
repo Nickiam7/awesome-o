@@ -26,6 +26,7 @@ module Prompt::Seo
     def templates
       {
         beginners_guide: Prompt::Templates.beginners_guide,
+        product_review: Prompt::Templates.product_review,
       }
     end
   end

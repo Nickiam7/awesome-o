@@ -102,15 +102,15 @@
     </div>
     <div class="wall wall--content">
       <div class="wall__heading">
-        <div class="form-group mt-4">
-          <%= form.label(:message, 'What?', class: 'visually-hidden') %>
-          <%= form.text_area(:message,
-            placeholder: 'Tell Awesome-o what kind of blog post you want!',
-            class: 'form-control h-100 border-0',
-            data: {
-              placeholder_target: :message
-            }
-          ) %>
+        <div class="form-group mt-4" data-placeholder-target="message">
+          <%= panel_item do %>
+            <%= form.label(:message, 'What?', class: 'visually-hidden') %>
+            <%= form.text_area(:message,
+              placeholder: 'Tell Awesome-o what kind of blog post you want!',
+              class: 'form-control border',
+              rows: 10,
+            ) %>
+          <% end %>
         </div>
       </div>
       <div class="wall__body">
@@ -118,8 +118,7 @@
           id="chat-results"
           class="container"
           data-placeholder-target="results"
-        >
-        </div>
+        ></div>
       </div>
       <div class="wall__footer">
       </div>
