@@ -32,5 +32,21 @@ module Prompt::Templates
       Please provide any applicable links for the product inlcuding more reviews or places where the product can purchased online or in a store.
       HERE
     end
+
+    def comparison
+      comparison_prompt = <<-HERE
+      #{PROMPT_INTRO}
+
+      Please start this comparison post with and "Introduction" section that explains what the two options are, briefly defining what they do or how they’re used.
+
+      Please provide an "Overview" section directly after the introduction section that gives more details about each of the two options. Please break this section into subsections, with subheadings, one for each option.
+
+      After the overview section, please create the "Comparison" section. Please provide comaprisons for each option. Please include relevant comparison criteria that has been provided and any other deemed appropriate.
+
+      For the final section pleaes include a "Conclusion". Please provide a brief recap of each each option. Feel free to suggest which option appears to be the best.
+
+      Please provide any applicable links for the one or both options inlcuding reviews of the options or places where the options can purchased online or in a store.
+      HERE
+    end
   end
 end
