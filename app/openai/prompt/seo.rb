@@ -26,8 +26,10 @@ module Prompt::Seo
     def templates
       {
         beginners_guide: Prompt::Templates.beginners_guide,
-        product_review: Prompt::Templates.product_review,
         comparison: Prompt::Templates.comparison,
+        definition: Prompt::Templates.definition,
+        fact_checker: Prompt::Templates.fact_checker,
+        product_review: Prompt::Templates.product_review,
       }
     end
   end
