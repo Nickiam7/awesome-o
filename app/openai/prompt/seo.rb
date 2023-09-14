@@ -29,6 +29,8 @@ module Prompt::Seo
         comparison: Prompt::Templates.comparison,
         definition: Prompt::Templates.definition,
         fact_checker: Prompt::Templates.fact_checker,
+        how_to: Prompt::Templates.how_to,
+        listicle: Prompt::Templates.listicle,
         product_review: Prompt::Templates.product_review,
       }
     end
