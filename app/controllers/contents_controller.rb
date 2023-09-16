@@ -20,10 +20,10 @@ class ContentsController < ApplicationController
       variations: params[:variations],
       keywords: params[:keywords].strip,
       generate_title: params[:generate_title],
-      private_post: params[:private_post],
       min_count: params[:min_count],
       max_count: params[:max_count],
       template: params[:template],
+      formatting: params[:formatting],
     }
   end
 end

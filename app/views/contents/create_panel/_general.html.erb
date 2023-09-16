@@ -103,23 +103,22 @@
 </div>
 <div class="form-group mt-4">
   <div class="d-flex align-items-center justify-content-between">
-    <%= form.label('Visibility', class: 'mb-2') %>
+    <%= form.label(:formatting, 'Format', class: 'mb-2') %>
     <%= tooltip(placement: 'right',
       classes: 'small',
-      message: 'Do you want your post to be private or shared
-                with the community. Only Pro users can have
-                private posts.'
+      message: 'By default Awesome-o will format your post using valid, accessibility compliant HTML. Select Raw if you want plain text.'
     ) %>
   </div>
-  <%= panel_item(classes: 'form-check form-switch d-flex justify-content-between') do %>
-    <%= form.label(:private_post, 'Set post to private', class: 'form-check-label') %>
-    <%= form.check_box(:private_post,
-      {
-        class: 'form-check-input',
-        role: :switch
-      },
-      'private',
-      'public'
+  <%= panel_item do %>
+    <%= form.select(:formatting,
+      options_for_select(
+        [
+          ['HTML','html'],
+          ['Raw', 'raw']
+        ],
+      ),
+      {},
+      class: 'form-select'
     ) %>
   <% end %>
 </div>

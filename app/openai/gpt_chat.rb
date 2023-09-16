@@ -14,10 +14,11 @@ class GptChat < OpenaiApplication
           {
             role: "user",
             content: "#{params[:message]}\n
+                      #{Prompt::General.formatting(params[:formatting])}\n
+                      #{Prompt::Seo.template(params[:template])}\n
                       #{Prompt::General.word_count(params[:min_count], params[:max_count])}\n
                       #{Prompt::Seo.title(params[:generate_title])}\n
-                      #{Prompt::Seo.keywords(params[:keywords])}\n
-                      #{Prompt::Seo.template(params[:template])}\n"
+                      #{Prompt::Seo.keywords(params[:keywords])}\n"
           }
         ],
         temperature: params[:creativity].to_i
