@@ -81,7 +81,7 @@ module Prompt::Templates
 
       Please start this List blog post with an "Introduction" section that includes a short overview of the list. Also, please include and engaging sentence on why this list post will be interesting to readers.
 
-      Directly after the introductions section please add a "List" section detailing the topic in a list format. Please create a table of contents ordered list. Below the table of contents list, create subheading for each corresponding item in the table of contents. Please provide a brief sentence or two for each subheading providing more context for each item in the table of contents.
+      Directly after the introductions section please add a "List" section. At beginning of the kist section please start with a ordered list of just list items. Please label this list "Table of Contents". Below the table of contents, create a more verbose and detailed list using subheading for each corresponding item in the table of contents. Please provide a brief sentence or two for each subheading providing more context for each item in the table of contents.
 
       Please include a "Conclusions" section directly after the list section. In the conclusion section please provide a recap of the list provided. You can provide a recommendation if you feel it is applicable. Also, please use encouraging tone and encourage the reader to continue their own research on the list subject matter.
 
