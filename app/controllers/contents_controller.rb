@@ -24,6 +24,7 @@ class ContentsController < ApplicationController
       max_count: params[:max_count],
       template: params[:template],
       formatting: params[:formatting],
+      css_framework: params[:css_framework],
     }
   end
 end

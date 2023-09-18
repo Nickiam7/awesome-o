@@ -1,6 +1,7 @@
 <%= turbo_stream.replace('chat-results') do %>
   <%= panel_item do %>
     <%= card(classes: 'text-start') do %>
+      <% begin %>
       <div>
         <h2>Option 1</h2>
         <%= @results.dig("choices", 0, "message", "content").html_safe %>
@@ -23,6 +24,9 @@
           <h2>Option 3</h2>
           <%= @results.dig("choices", 3, "message", "content").html_safe %>
         </div>
+      <% end %>
+      <% rescue => e %>
+        <h1>Something ain't sturrrin the Koolaid</h1>
       <% end %>
     <% end %>
   <% end %>

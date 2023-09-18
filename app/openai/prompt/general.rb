@@ -24,14 +24,6 @@ class Prompt::General
       count.strip
     end
 
-    def formatting(format)
-      if format == 'raw'
-        "Please generate this post as raw text. Please do not include any HTML."
-      else
-        "Please format this post using valid HTML syntax that ensures all Web Accessibility standards are met. Please use appropriate heading tags including h1 for titles and h2 for subsections and h3 through h6 as necssary. Also, please use 'p' tags for paragrah text. Please include any applicable aria attributes."
-      end
-    end
-
     def min_word_count(count)
       "Please create this post with no less than #{count} words. "
     end
