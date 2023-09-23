@@ -25,7 +25,7 @@ class CreatePanelController extends Controller {
     this.#setTemplateMessage()
   }
 
-  clearPrompt() {
+  resetPrompt() {
     this.messageInputTarget.value = ''
   }
 
@@ -61,14 +61,14 @@ class CreatePanelController extends Controller {
     this.templateSelectTarget.value = ''
     this.templateInfoTarget.innerHTML = ''
     this.templateMessageTarget.innerHTML = ''
-    this.clearPrompt()
+    this.resetPrompt()
   }
 
   #promptTemplateFeedbck() {
     const select = this.templateSelectTarget
 
     return(`
-      <div class="d-flex justify-content-between align-items-center pt-1">
+      <div>
         <div data-create-panel-target="templateInfo">
           <span>Template: <strong>${select.options[select.selectedIndex].text}</strong></span>
           <span class="ms-2" data-action="click->create-panel#resetTemplate" style="cursor: pointer;">
@@ -79,7 +79,6 @@ class CreatePanelController extends Controller {
             </i>
           </span>
         </div>
-        <span style="font-size: 0.75rem;" class="btn btn-link text-danger fw-bold" data-action="click->create-panel#clearPrompt">Clear Prompt</span>
       </div>
     `)
   }
