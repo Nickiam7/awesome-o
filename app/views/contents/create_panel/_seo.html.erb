@@ -22,6 +22,10 @@
       ),
       { include_blank: "Select a template" },
       class: 'form-select',
+      data: {
+        create_panel_target: :templateSelect,
+        action: 'change->create-panel#updatePrompt'
+      }
     ) %>
   <% end %>
 </div>

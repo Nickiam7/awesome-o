@@ -9,3 +9,6 @@ application.register("app", AppController)
 
 import PlaceholderController from "./placeholder_controller"
 application.register("placeholder", PlaceholderController)
+
+import CreatePanelController from "./create_panel_controller"
+application.register("create-panel", CreatePanelController)

@@ -1,4 +1,4 @@
-<main>
+<main data-controller="create-panel">
   <%= form_with(url: gpt_chat_path,
     class: 'walls',
     data: {
@@ -109,8 +109,13 @@
               placeholder: 'Tell Awesome-o what kind of blog post you want!',
               class: 'form-control border',
               rows: 10,
+              data: {
+                create_panel_target: :messageInput
+              }
             ) %>
+            <div data-create-panel-target="messageFeedback"></div>
           <% end %>
+          <div data-create-panel-target="templateMessage"></div>
         </div>
       </div>
       <div class="wall__body">
