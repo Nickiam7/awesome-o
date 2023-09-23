@@ -18,6 +18,21 @@ $font-family-sans-serif: 'Comfortaa',
   "Segoe UI Symbol",
   "Noto Color Emoji" !default;
 
+$font-family-generated-post: 'Roboto',
+  system-ui,
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  "Helvetica Neue",
+  Arial,
+  "Noto Sans",
+  sans-serif,
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  'Segoe UI Symbol',
+  "Noto Color Emoji";
+
 // actions
 $primary_transition: all 200ms;
 

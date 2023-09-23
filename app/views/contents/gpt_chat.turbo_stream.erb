@@ -1,5 +1,5 @@
 <%= turbo_stream.replace('chat-results') do %>
-  <%= panel_item do %>
+  <%= panel_item(id: 'post-results') do %>
     <%= card(classes: 'text-start') do %>
       <% begin %>
       <div>

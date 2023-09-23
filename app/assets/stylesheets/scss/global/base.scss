@@ -7,6 +7,11 @@ body {
 
 .btn-check+.btn:hover {
   background-color: $gray-200;
+  border-color: darken($primary_dark, 25%);
+}
+
+.btn-check:checked+.btn {
+  background-color: #ffffff;
 }
 
 .turbo-progress-bar {
