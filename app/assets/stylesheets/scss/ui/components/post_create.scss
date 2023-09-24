@@ -1,3 +1,13 @@
 #post-results {
   font-family: $font-family-generated-post;
 }
+#optionsTabs {
+  position: sticky;
+  top: -16px;
+  z-index: 1;
+  border-bottom: none;
+  background-color: rgb(248, 249, 250);
+  .nav-link {
+    margin-bottom: -2px;
+  }
+}
