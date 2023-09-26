@@ -20,7 +20,7 @@ export const factChecker =
 `
 
 export const howTo =
-`How:
+`How-to:
 -
 `
 
