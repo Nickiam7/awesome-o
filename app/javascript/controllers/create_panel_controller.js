@@ -14,6 +14,7 @@ class CreatePanelController extends Controller {
   static targets = [
     'templateSelect',
     'messageInput',
+    'hiddenMessageInput',
     'messageFeedback',
     'templateInfo',
     'templateMessage'
@@ -64,6 +65,10 @@ class CreatePanelController extends Controller {
     this.resetPrompt()
   }
 
+  updateMessage() {
+    this.hiddenMessageInputTarget.value = this.messageInputTarget.value
+  }
+
   #promptTemplateFeedbck() {
     const select = this.templateSelectTarget
 
@@ -86,6 +91,7 @@ class CreatePanelController extends Controller {
   #fillPrompt(templatePrompt) {
     this.messageInputTarget.value = templatePrompt
   }
+
   #setTemplateMessage() {
     const template = (`
       <div class="alert alert-warning d-flex align-items-center mt-4" role="alert">

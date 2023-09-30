@@ -1,9 +1,9 @@
 <main data-controller="create-panel">
-  <div class="walls">
+  <div class="walls" data-controller="placeholder">
     <div class="wall wall--controls shadow">
       <%= form_with(url: gpt_chat_path,
+        class: 'wall p-0',
         data: {
-          controller: :placeholder,
           action: 'submit->placeholder#showSkeleton'
         }
       ) do |form| %>
@@ -16,7 +16,7 @@
           role="tablist">
           <li class="nav-item" role="presentation">
             <button
-              class="nav-link active"
+              class="nav-link active fw-bold"
               id="general"
               data-bs-toggle="tab"
               data-bs-target="#general-pane"
@@ -29,7 +29,7 @@
           </li>
           <li class="nav-item" role="presentation">
             <button
-              class="nav-link"
+              class="nav-link fw-bold"
               id="seo"
               data-bs-toggle="tab"
               data-bs-target="#seo-pane"
@@ -93,7 +93,6 @@
               ) %>
             </div>
           </div>
-
         </div>
         <div class="wall__footer border-top d-block">
           <div class="form-group">
@@ -103,16 +102,18 @@
       <% end %>
     </div>
     <div class="wall wall--content">
-      <div class="wall__heading" id="content-heading">
+      <div class="wall__heading">
         <div class="form-group mt-4" data-placeholder-target="message">
           <%= panel_item do %>
             <%= label_tag(:message, 'What?', class: 'visually-hidden') %>
             <%= text_area_tag(:message,
+              nil,
               placeholder: 'Tell Awesome-o what kind of blog post you want!',
               class: 'form-control border',
               rows: 10,
               data: {
-                create_panel_target: :messageInput
+                create_panel_target: :messageInput,
+                action: 'input->create-panel#updateMessage'
               }
             ) %>
             <div class="d-flex justify-content-between align-items-center pt-1">
@@ -130,7 +131,7 @@
           data-placeholder-target="results"
         ></div>
       </div>
-      <div class="wall__footer" id="results-actions">
+      <div class="wall__footer">
       </div>
     </div>
     <div class="wall wall--activity">

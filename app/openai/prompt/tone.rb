@@ -20,7 +20,7 @@ module Prompt::Tone
     end
 
     def professional
-      "Please create this post using a humorous tone and style of writing. Please include a wide range of humor styles including Satire, Situational humor, Overstatement and even Dark humor."
+      "Please create this post using a professional and business formal tone and style of writing. Please feel free to use some corporate jargon, but please use it sparingly."
     end
 
     def inspirational

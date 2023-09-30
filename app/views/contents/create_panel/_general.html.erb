@@ -55,6 +55,33 @@
 </div>
 <div class="form-group mt-4">
   <div class="d-flex align-items-center justify-content-between">
+    <%= form.label(:model, 'Tone & writing style', class: 'mb-2') %>
+    <%= tooltip(placement: 'right',
+      classes: 'small',
+      message: 'Tell Awesome-o how you want the tone and overall writing style of your post to come across.'
+    ) %>
+  </div>
+  <%= panel_item do %>
+    <%= form.select(:tone,
+      options_for_select(
+        [
+          ['Default',''],
+          ['Creative','creative'],
+          ['Casual', 'casual'],
+          ['Formal', 'formal'],
+          ['Humorous', 'humorous'],
+          ['Professional', 'professional'],
+          ['Inspirational', 'inspirational'],
+          ['Subdued', 'subdued'],
+        ],
+      ),
+      {},
+      class: 'form-select'
+    ) %>
+  <% end %>
+</div>
+<div class="form-group mt-4">
+  <div class="d-flex align-items-center justify-content-between">
     <%= form.label('variations', class: 'mb-2') %>
     <%= tooltip(placement: 'right',
       classes: 'small',
@@ -100,4 +127,12 @@
       <%= form.text_field(:max_count, class: 'form-control') %>
     </div>
   <% end %>
+</div>
+<div>
+<%= form.label(:message, 'What?', class: 'visually-hidden') %>
+<%= form.hidden_field(:message,
+  data: {
+    create_panel_target: :hiddenMessageInput
+  }
+) %>
 </div>
