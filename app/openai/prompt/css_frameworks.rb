@@ -1,3 +1,5 @@
+#frozen_string_literal: true
+
 module Prompt::CssFrameworks
   BOOTSTRAP = 'Please format this post using the Bootstrap css framework. Documentation can be found here: https://getbootstrap.com/docs/5.3/getting-started/introduction/'
   TAILWIND = 'Please format this post using the Tailwind CSS framework. Documentation can be found here: https://tailwindcss.com/docs/installation'

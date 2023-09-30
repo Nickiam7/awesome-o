@@ -31,5 +31,23 @@ class Prompt::General
     def max_word_count(count)
       "Please create this post with no more than #{count} words."
     end
+
+    def tone(tone)
+      tones[tone.to_sym]
+    end
+
+    private
+
+    def tones
+      {
+        creative: Prompt::Tone.creative,
+        casual: Prompt::Tone.casual,
+        formal: Prompt::Tone.formal,
+        humorous: Prompt::Tone.humorous,
+        professional: Prompt::Tone.professional,
+        inspirational: Prompt::Tone.inspirational,
+        subdued: Prompt::Tone.subdued,
+      }
+    end
   end
 end

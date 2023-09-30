@@ -1,111 +1,113 @@
 <main data-controller="create-panel">
-  <%= form_with(url: gpt_chat_path,
-    class: 'walls',
-    data: {
-      controller: :placeholder,
-      action: 'submit->placeholder#showSkeleton'
-    }
-  ) do |form| %>
+  <div class="walls">
     <div class="wall wall--controls shadow">
-      <div class="wall__heading pb-0">
-        <%= h(tag: 'h2', text: 'Create panel', classes: 'lead fw-bold') %>
-      </div>
-      <ul
-        class="nav nav-tabs pb-0"
-        id="createTabs"
-        role="tablist">
-        <li class="nav-item" role="presentation">
-          <button
-            class="nav-link active"
-            id="general"
-            data-bs-toggle="tab"
-            data-bs-target="#general-pane"
-            type="button"
-            role="tab"
-            aria-controls="general-pane"
-            aria-selected="true">
-              General
-          </button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button
-            class="nav-link"
-            id="seo"
-            data-bs-toggle="tab"
-            data-bs-target="#seo-pane"
-            type="button"
-            role="tab"
-            aria-controls="seo-pane"
-            aria-selected="false">
-              SEO
-          </button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button
-            class="nav-link"
-            id="component"
-            data-bs-toggle="tab"
-            data-bs-target="#component-pane"
-            type="button"
-            role="tab"
-            aria-controls="component-pane"
-            aria-selected="false">
-              Format
-          </button>
-        </li>
-      </ul>
-      <div class="wall__body">
-        <div class="tab-content" id="createTabsContent">
-          <div class="tab-pane fade show active"
-            id="general-pane"
-            role="tabpanel"
-            aria-labelledby="general"
-            tabindex="0"
-          >
-            <%= render(partial: 'contents/create_panel/general',
-              locals: {
-                form: form
-              }
-            ) %>
+      <%= form_with(url: gpt_chat_path,
+        data: {
+          controller: :placeholder,
+          action: 'submit->placeholder#showSkeleton'
+        }
+      ) do |form| %>
+        <div class="wall__heading pb-0">
+          <%= h(tag: 'h2', text: 'Create panel', classes: 'lead fw-bold') %>
+        </div>
+        <ul
+          class="nav nav-tabs pb-0"
+          id="createTabs"
+          role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="general"
+              data-bs-toggle="tab"
+              data-bs-target="#general-pane"
+              type="button"
+              role="tab"
+              aria-controls="general-pane"
+              aria-selected="true">
+                General
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="seo"
+              data-bs-toggle="tab"
+              data-bs-target="#seo-pane"
+              type="button"
+              role="tab"
+              aria-controls="seo-pane"
+              aria-selected="false">
+                SEO
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="component"
+              data-bs-toggle="tab"
+              data-bs-target="#component-pane"
+              type="button"
+              role="tab"
+              aria-controls="component-pane"
+              aria-selected="false">
+                Format
+            </button>
+          </li>
+        </ul>
+        <div class="wall__body">
+          <div class="tab-content" id="createTabsContent">
+            <div class="tab-pane fade show active"
+              id="general-pane"
+              role="tabpanel"
+              aria-labelledby="general"
+              tabindex="0"
+            >
+              <%= render(partial: 'contents/create_panel/general',
+                locals: {
+                  form: form
+                }
+              ) %>
+            </div>
+            <div class="tab-pane fade"
+              id="seo-pane"
+              role="tabpanel"
+              aria-labelledby="seo"
+              tabindex="0"
+            >
+              <%= render(partial: 'contents/create_panel/seo',
+                locals: {
+                  form: form
+                }
+              ) %>
+            </div>
+            <div class="tab-pane fade"
+              id="component-pane"
+              role="tabpanel"
+              aria-labelledby="component"
+              tabindex="0"
+            >
+              <%= render(partial: 'contents/create_panel/format',
+                locals: {
+                  form: form
+                }
+              ) %>
+            </div>
           </div>
-          <div class="tab-pane fade"
-            id="seo-pane"
-            role="tabpanel"
-            aria-labelledby="seo"
-            tabindex="0"
-          >
-            <%= render(partial: 'contents/create_panel/seo',
-              locals: {
-                form: form
-              }
-            ) %>
-          </div>
-          <div class="tab-pane fade"
-            id="component-pane"
-            role="tabpanel"
-            aria-labelledby="component"
-            tabindex="0"
-          >
-            <%= render(partial: 'contents/create_panel/format',
-              locals: {
-                form: form
-              }
-            ) %>
+
+        </div>
+        <div class="wall__footer border-top d-block">
+          <div class="form-group">
+            <%= form.submit('Or something...', class: 'btn btn-success text-white w-100') %>
           </div>
         </div>
-      </div>
-      <div class="wall__footer border-top d-block">
-        <div class="form-group">
-          <%= form.submit('Or something...', class: 'btn btn-success text-white w-100') %>
-        </div>
-      </div>
+      <% end %>
     </div>
     <div class="wall wall--content">
       <div class="wall__heading" id="content-heading">
         <div class="form-group mt-4" data-placeholder-target="message">
           <%= panel_item do %>
-            <%= form.label(:message, 'What?', class: 'visually-hidden') %>
-            <%= form.text_area(:message,
+            <%= label_tag(:message, 'What?', class: 'visually-hidden') %>
+            <%= text_area_tag(:message,
               placeholder: 'Tell Awesome-o what kind of blog post you want!',
               class: 'form-control border',
               rows: 10,
@@ -128,10 +130,10 @@
           data-placeholder-target="results"
         ></div>
       </div>
-      <div class="wall__footer">
+      <div class="wall__footer" id="results-actions">
       </div>
     </div>
     <div class="wall wall--activity">
     </div>
-  <% end %>
+  </div>
 </main>

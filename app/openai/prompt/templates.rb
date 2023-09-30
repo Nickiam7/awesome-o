@@ -1,3 +1,5 @@
+#frozen_string_literal: true
+
 module Prompt::Templates
   PROMPT_INTRO = "Please follow the format outlined below when creating this blog post."
   PROMPT_CTA = "Please use an upbeat and energetic tone to ask readers what they thougt about the post and encourage reader to leave a comment."

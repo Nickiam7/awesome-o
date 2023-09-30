@@ -25,6 +25,7 @@ class ContentsController < ApplicationController
       template: params[:template],
       formatting: params[:formatting],
       css_framework: params[:css_framework],
+      tone: params[:tone],
     }
   end
 end

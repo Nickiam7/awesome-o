@@ -1,4 +1,7 @@
+<%# Remove header %>
 <%= turbo_stream.remove('content-heading') %>
+
+<%# Add results from response %>
 <%= turbo_stream.replace('chat-results') do %>
   <%= panel_item(id: 'post-results') do %>
     <% if @results.dig("choices").length > 1 %>
@@ -22,6 +25,7 @@
       </ul>
     <% end %>
     <%= card(classes: 'text-start') do %>
+      <%= form_with(url: root_path) do |form| %>
       <% begin %>
         <% if @results.dig("choices").length == 1 %>
           <div>
@@ -46,6 +50,14 @@
       <% rescue => e %>
         <h2 class="mt-3">Awesome-o could not compute... Please try again.</h2>
       <% end %>
+      <% end %>
     <% end %>
   <% end %>
+<% end %>
+
+<%# Add results actions %>
+<%= turbo_stream.replace('results-actions') do %>
+  <div class="wall__footer border-top">
+    <a href="#" class="btn btn-primary">Test</a>
+  </div>
 <% end %>
