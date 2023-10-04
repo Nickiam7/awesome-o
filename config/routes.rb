@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get 'blog'
       get 'start'
       get 'auto-awesome'
+      get 'edit_message'
     end
   end
 

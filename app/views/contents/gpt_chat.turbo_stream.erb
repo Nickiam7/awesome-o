@@ -4,8 +4,8 @@
 <%# Add results from response %>
 <%= turbo_stream.replace('chat-results') do %>
   <%= panel_item(id: 'post-results') do %>
-    <% if @results.dig("choices").length > 1 %>
-      <ul class="nav nav-tabs" id="optionsTabs" role="tablist">
+    <ul class="nav nav-tabs" id="optionsTabs" role="tablist">
+      <% if @results.dig("choices").length > 1 %>
         <% @results.dig("choices").length.times do | index | %>
           <li class="nav-item" role="presentation">
             <button
@@ -22,8 +22,11 @@
             </button>
           </li>
         <% end %>
-      </ul>
-    <% end %>
+      <% end %>
+      <%= link_to(edit_message_contents_path, class: 'btn btn-light ms-auto') do %>
+        <i class="bi bi-pencil-square"></i> Edit
+      <% end %>
+    </ul>
     <%= card(classes: 'text-start') do %>
       <%= form_with(url: root_path) do |form| %>
       <% begin %>
@@ -42,7 +45,9 @@
                 aria-labelledby="option-<%= index %>"
                 tabindex="0"
               >
-                <%= @results.dig("choices", index, "message", "content").html_safe %>
+                <%= turbo_frame_tag("option-#{index}") do %>
+                  <%= @results.dig("choices", index, "message", "content").html_safe %>
+                <% end %>
               </div>
             <% end %>
           </div>
@@ -58,6 +63,6 @@
 <%# Add results actions %>
 <%= turbo_stream.replace('results-actions') do %>
   <div class="wall__footer border-top">
-    <a href="#" class="btn btn-primary">Test</a>
+    <a href="#" class="btn btn-primary text-white">Test</a>
   </div>
 <% end %>

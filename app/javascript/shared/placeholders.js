@@ -5,10 +5,6 @@ export const resultsPlaceholder = `
         <p class="card-text placeholder-glow mb-0">
           <span class="placeholder col-12 placeholder-lg"></span>
           <span class="placeholder col-11 placeholder-sm"></span>
-          <span class="mb-2 d-block"></span>
-          <span class="placeholder col-3"></span>
-          <span class="placeholder col-3"></span>
-          <span class="mb-2 d-block"></span>
           <span class="placeholder col-10"></span>
           <span class="placeholder col-11"></span>
           <span class="placeholder col-10"></span>
@@ -16,11 +12,17 @@ export const resultsPlaceholder = `
           <span class="placeholder col-11"></span>
           <span class="placeholder col-12"></span>
         </p>
+        <p class="card-text placeholder-glow mt-3 mb-0">
+          <span class="placeholder col-10"></span>
+          <span class="placeholder col-12"></span>
+          <span class="placeholder col-11"></span>
+          <span class="placeholder col-12"></span>
+        </p>
         <div class="d-flex align-items-center justify-content-center">
           <p class="card-text placeholder-glow flex-grow-1 pe-3 mb-0">
-            <span class="placeholder col-12"></span>
-            <span class="placeholder col-12"></span>
-            <span class="placeholder col-12"></span>
+            <span class="placeholder col-10"></span>
+            <span class="placeholder col-11"></span>
+            <span class="placeholder col-8"></span>
           </p>
           <div class="d-flex align-items-center justify-content-center">
           <div id="awesome-o-container">
@@ -62,10 +64,10 @@ export const resultsPlaceholder = `
           </div>
           <h2 class="mb-0 ms-3">Awesome-o is computing...</h2>
           </div>
-          <p class="card-text placeholder-glow flex-grow-1 ps-3 mb-0">
-            <span class="placeholder col-12"></span>
-            <span class="placeholder col-12"></span>
-            <span class="placeholder col-12"></span>
+          <p class="card-text placeholder-glow text-center flex-grow-1 ps-3 mb-0">
+            <span class="placeholder col-8"></span>
+            <span class="placeholder col-11"></span>
+            <span class="placeholder col-10"></span>
           </p>
         </div>
         <p class="card-text placeholder-glow text-start">
@@ -73,7 +75,17 @@ export const resultsPlaceholder = `
           <span class="placeholder col-10"></span>
           <span class="placeholder col-11"></span>
           <span class="placeholder col-10"></span>
+        </p>
+        <p class="card-text placeholder-glow text-start mt-3">
+          <span class="placeholder col-11"></span>
           <span class="placeholder col-12"></span>
+          <span class="placeholder col-10"></span>
+          <span class="placeholder col-11"></span>
+          <span class="placeholder col-11"></span>
+          <span class="placeholder col-10"></span>
+        </p>
+        <p class="card-text placeholder-glow text-start mt-3">
+          <span class="placeholder col-11"></span>
           <span class="placeholder col-12"></span>
           <span class="placeholder col-10"></span>
           <span class="placeholder col-11"></span>
