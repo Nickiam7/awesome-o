@@ -23,16 +23,16 @@
           </li>
         <% end %>
       <% end %>
-      <%= link_to(edit_message_contents_path, class: 'btn btn-light ms-auto') do %>
-        <i class="bi bi-pencil-square"></i> Edit
-      <% end %>
     </ul>
     <%= card(classes: 'text-start') do %>
       <%= form_with(url: root_path) do |form| %>
       <% begin %>
         <% if @results.dig("choices").length == 1 %>
           <div>
-            <%= @results.dig("choices", 0, "message", "content").html_safe %>
+            <%= form.rich_text_area(:body,
+              value: @results.dig("choices", 0, "message", "content"),
+              class: 'form-control'
+            ) %>
           </div>
         <% end %>
         <% if @results.dig("choices").length > 1 %>
@@ -45,9 +45,10 @@
                 aria-labelledby="option-<%= index %>"
                 tabindex="0"
               >
-                <%= turbo_frame_tag("option-#{index}") do %>
-                  <%= @results.dig("choices", index, "message", "content").html_safe %>
-                <% end %>
+                <%= form.rich_text_area(:body,
+                  value: @results.dig("choices", index, "message", "content"),
+                  class: 'form-control border'
+                ) %>
               </div>
             <% end %>
           </div>
@@ -61,8 +62,10 @@
 <% end %>
 
 <%# Add results actions %>
-<%= turbo_stream.replace('results-actions') do %>
-  <div class="wall__footer border-top">
-    <a href="#" class="btn btn-primary text-white">Test</a>
-  </div>
+<%= form_with(url: '/none') do |form| %>
+  <%= turbo_stream.replace('results-actions') do %>
+    <div class="wall__footer border-top">
+      <%= form.submit('Save post', class: 'btn btn-primary text-white') %>
+    </div>
+  <% end %>
 <% end %>

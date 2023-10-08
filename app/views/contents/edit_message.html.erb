@@ -1,9 +1,0 @@
-<%= turbo_frame_tag("option-1") do %>
-  <%= form.text_area(:message,
-  class: 'form-control border',
-  rows: 10,
-  data: {
-    create_panel_target: :messageInput,
-    action: 'input->create-panel#updateMessage'
-  }) %>
-<% end %>
