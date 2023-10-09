@@ -23,16 +23,14 @@
           </li>
         <% end %>
       <% end %>
+
     </ul>
     <%= card(classes: 'text-start') do %>
       <%= form_with(url: root_path) do |form| %>
       <% begin %>
         <% if @results.dig("choices").length == 1 %>
           <div>
-            <%= form.rich_text_area(:body,
-              value: @results.dig("choices", 0, "message", "content"),
-              class: 'form-control'
-            ) %>
+            <%= @results.dig("choices", 0, "message", "content").html_safe %>
           </div>
         <% end %>
         <% if @results.dig("choices").length > 1 %>
@@ -45,10 +43,7 @@
                 aria-labelledby="option-<%= index %>"
                 tabindex="0"
               >
-                <%= form.rich_text_area(:body,
-                  value: @results.dig("choices", index, "message", "content"),
-                  class: 'form-control border'
-                ) %>
+                <%= @results.dig("choices", index, "message", "content").html_safe %>
               </div>
             <% end %>
           </div>
