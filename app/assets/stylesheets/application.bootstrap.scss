@@ -3,4 +3,7 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 
+@import 'medium-editor/src/sass/medium-editor';
+@import 'medium-editor/src/sass/themes/default';
+
 @import './scss/app';

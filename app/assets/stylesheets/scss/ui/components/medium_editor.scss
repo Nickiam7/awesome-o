@@ -1,0 +1,18 @@
+.editable.medium-editor-element {
+  &:focus-visible {
+    outline: 0;
+  }
+}
+
+.medium-editor-toolbar {
+  background-color: #242424;
+  background: $primary_dark;
+  border: 1px solid #000;
+  border-radius: 5px;
+  box-shadow: 0 0 3px #000;
+}
+
+.medium-editor-toolbar li button:hover {
+  background-color: lighten($primary_dark, 10%);
+  color: $primary_green;
+}
