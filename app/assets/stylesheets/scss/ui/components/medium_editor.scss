@@ -16,3 +16,32 @@
   background-color: lighten($primary_dark, 10%);
   color: $primary_green;
 }
+
+.medium-editor-action.medium-editor-action-unorderedlist {
+  &:before {
+    font-family: "bootstrap-icons" !important;
+    content: "\f478";
+    height: 100%;
+    font-weight: 700;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+  }
+  b {
+    display: none;
+  }
+}
+.medium-editor-action.medium-editor-action-orderedlist.medium-editor-button-last {
+  &:before {
+    font-family: "bootstrap-icons" !important;
+    content: "\F475";
+    height: 100%;
+    font-weight: 700;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+  }
+  b {
+    display: none;
+  }
+}

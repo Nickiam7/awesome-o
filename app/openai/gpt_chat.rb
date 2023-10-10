@@ -2,6 +2,7 @@
 
 class GptChat < OpenaiApplication
   def chat(params = {})
+    begin
     response = openai_client.chat(
       parameters: {
         model: params[:model],
@@ -26,5 +27,8 @@ class GptChat < OpenaiApplication
         temperature: params[:creativity].to_i
       }
     )
+    rescue => e
+      "Awesome-o encountered an error. Please try again."
+    end
   end
 end

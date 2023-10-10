@@ -4,27 +4,39 @@
 <%# Add results from response %>
 <%= turbo_stream.replace('chat-results') do %>
   <%= panel_item(id: 'post-results') do %>
-    <ul class="nav nav-tabs" id="optionsTabs" role="tablist">
-      <% if @results.dig("choices").length > 1 %>
-        <% @results.dig("choices").length.times do | index | %>
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link <%= 'active' if index == 0 %>"
-              id="option-<%= index %>"
-              data-bs-toggle="tab"
-              data-bs-target="#option-<%= index %>-pane"
-              type="button"
-              role="tab"
-              aria-controls="option-<%= index %>-pane"
-              aria-selected="true"
-            >
-              Option <%= index + 1 %>
-            </button>
-          </li>
+    <div id="optionsTabs" class="d-flex align-items-center justify-content-between">
+      <ul class="nav nav-tabs border-none" role="tablist">
+        <% if @results.dig("choices").length > 1 %>
+          <% @results.dig("choices").length.times do | index | %>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link <%= 'active' if index == 0 %>"
+                id="option-<%= index %>"
+                data-bs-toggle="tab"
+                data-bs-target="#option-<%= index %>-pane"
+                type="button"
+                role="tab"
+                aria-controls="option-<%= index %>-pane"
+                aria-selected="true"
+              >
+                Option <%= index + 1 %>
+              </button>
+            </li>
+          <% end %>
         <% end %>
-      <% end %>
 
-    </ul>
+      </ul>
+      <div class="ms-auto">
+        <span class="badge text-bg-success text-white fw-normal">
+        <i class="bi bi-check2-square">
+          <span class="visually-hidden">
+            Eidtor enabled
+          </span>
+        </i>
+        Post editor enabled
+        </span>
+      </div>
+    </div>
     <%= card(classes: 'text-start') do %>
       <%= form_with(url: root_path) do |form| %>
       <% begin %>
