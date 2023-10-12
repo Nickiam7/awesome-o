@@ -3,6 +3,7 @@
 
 <%# Add results from response %>
 <%= turbo_stream.replace('chat-results') do %>
+
   <%= panel_item(id: 'post-results') do %>
     <div id="optionsTabs" class="d-flex align-items-center justify-content-between">
       <ul class="nav nav-tabs border-none" role="tablist">
@@ -24,7 +25,6 @@
             </li>
           <% end %>
         <% end %>
-
       </ul>
       <div class="ms-auto">
         <span class="badge text-bg-success text-white fw-normal">
@@ -38,55 +38,59 @@
       </div>
     </div>
     <%= card(classes: 'text-start') do %>
-      <%= form_with(url: root_path) do |form| %>
       <% begin %>
-        <% if @results.dig("choices").length == 1 %>
-          <div class="editable">
-            <%= @results.dig("choices", 0, "message", "content").html_safe %>
-          </div>
-        <% end %>
-        <% if @results.dig("choices").length > 1 %>
-          <div class="tab-content" id="optionsTabsContent">
-            <% @results.dig("choices").length.times do | index | %>
-              <div
-                class="tab-pane fade <%= 'show active' if index == 0 %>"
-                id="option-<%= index %>-pane"
-                role="tabpanel"
-                aria-labelledby="option-<%= index %>"
-                tabindex="0"
-              >
-                <div class="editable">
-                  <%= @results.dig("choices", index, "message", "content").html_safe %>
+        <%= form_with(model: @post) do |form| %>
+          <% if @results.dig("choices").length == 1 %>
+            <div class="editable">
+              <%= @results.dig("choices", 0, "message", "content").html_safe %>
+            </div>
+          <% end %>
+          <% if @results.dig("choices").length > 1 %>
+            <div class="tab-content" id="optionsTabsContent">
+              <% @results.dig("choices").length.times do | index | %>
+                <div
+                  class="tab-pane fade <%= 'show active' if index == 0 %>"
+                  id="option-<%= index %>-pane"
+                  role="tabpanel"
+                  aria-labelledby="option-<%= index %>"
+                  tabindex="0"
+                >
+                  <%= form.hidden_field(:title, value: 'test title') %>
+                  <div class="editable">
+                    <%= form.text_area(:content,
+                      value: @results.dig("choices", index, "message", "content").html_safe
+                    ) %>
+                  </div>
                 </div>
-              </div>
-            <% end %>
-          </div>
+              <% end %>
+            </div>
+          <% end %>
         <% end %>
       <% rescue => e %>
         <h2 class="mt-3">Awesome-o could not compute... Please try again.</h2>
       <% end %>
-      <% end %>
     <% end %>
   <% end %>
   <script>
-  (() => {
-    new MediumEditor('.editable', {
-      buttonLabels: false,
-      toolbar: {
-        buttons: [
-          'h1',
-          'h2',
-          'h3',
-          'anchor',
-          'bold',
-          'italic',
-          'unorderedlist',
-          'orderedlist'
-        ]
-      }
-    })
-  })()
+    (() => {
+      new MediumEditor('.editable', {
+        buttonLabels: false,
+        toolbar: {
+          buttons: [
+            'h1',
+            'h2',
+            'h3',
+            'anchor',
+            'bold',
+            'italic',
+            'unorderedlist',
+            'orderedlist'
+          ]
+        }
+      })
+    })()
   </script>
+
 <% end %>
 
 <%# Add results actions %>

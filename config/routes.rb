@@ -13,5 +13,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :posts
+
   root to: 'pages#home'
 end
