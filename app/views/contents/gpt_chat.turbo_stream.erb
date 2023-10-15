@@ -24,7 +24,6 @@
             </li>
           <% end %>
         <% end %>
-
       </ul>
       <div class="ms-auto">
         <span class="badge text-bg-success text-white fw-normal">
@@ -38,7 +37,6 @@
       </div>
     </div>
     <%= card(classes: 'text-start') do %>
-      <%= form_with(url: root_path) do |form| %>
       <% begin %>
         <% if @results.dig("choices").length == 1 %>
           <div class="editable">
@@ -64,7 +62,6 @@
         <% end %>
       <% rescue => e %>
         <h2 class="mt-3">Awesome-o could not compute... Please try again.</h2>
-      <% end %>
       <% end %>
     <% end %>
   <% end %>
