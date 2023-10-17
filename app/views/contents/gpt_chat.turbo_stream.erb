@@ -55,9 +55,9 @@
                   aria-labelledby="option-<%= index %>"
                   tabindex="0"
                 >
-                  <%= form.text_area("post[content][#{index}]",
+                  <%= form.text_area("post[content][]",
                     value: @results.dig("choices", index, "message", "content"),
-                    class: 'form-control editable'
+                    class: 'form-control border-0 editable'
                   ) %>
                 </div>
               <% end %>
