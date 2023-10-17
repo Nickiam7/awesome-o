@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   post '/gpt_chat', to: 'contents#gpt_chat'
 
+  resources :posts
   resources :contents, path: :content do
     collection do
       get 'blog'

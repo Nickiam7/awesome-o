@@ -2,94 +2,99 @@
 <%= turbo_stream.remove('content-heading') %>
 
 <%# Add results from response %>
-<%= turbo_stream.replace('chat-results') do %>
-  <%= panel_item(id: 'post-results') do %>
-    <div id="optionsTabs" class="d-flex align-items-center justify-content-between">
-      <ul class="nav nav-tabs border-none" role="tablist">
-        <% if @results.dig("choices").length > 1 %>
-          <% @results.dig("choices").length.times do | index | %>
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link <%= 'active' if index == 0 %>"
-                id="option-<%= index %>"
-                data-bs-toggle="tab"
-                data-bs-target="#option-<%= index %>-pane"
-                type="button"
-                role="tab"
-                aria-controls="option-<%= index %>-pane"
-                aria-selected="true"
-              >
-                Option <%= index + 1 %>
-              </button>
-            </li>
-          <% end %>
-        <% end %>
-      </ul>
-      <div class="ms-auto">
-        <span class="badge text-bg-success text-white fw-normal">
-        <i class="bi bi-check2-square">
-          <span class="visually-hidden">
-            Eidtor enabled
-          </span>
-        </i>
-        Post editor enabled
-        </span>
-      </div>
-    </div>
-    <%= card(classes: 'text-start') do %>
-      <% begin %>
-        <% if @results.dig("choices").length == 1 %>
-          <div class="editable">
-            <%= @results.dig("choices", 0, "message", "content").html_safe %>
-          </div>
-        <% end %>
-        <% if @results.dig("choices").length > 1 %>
-          <div class="tab-content" id="optionsTabsContent">
+<%= form_with do |form| %>
+  <%= turbo_stream.replace('chat-results') do %>
+    <%= panel_item(id: 'post-results') do %>
+      <div id="optionsTabs" class="d-flex align-items-center justify-content-between">
+        <ul class="nav nav-tabs border-none" role="tablist">
+          <% if @results.dig("choices").length > 1 %>
             <% @results.dig("choices").length.times do | index | %>
-              <div
-                class="tab-pane fade <%= 'show active' if index == 0 %>"
-                id="option-<%= index %>-pane"
-                role="tabpanel"
-                aria-labelledby="option-<%= index %>"
-                tabindex="0"
-              >
-                <div class="editable">
-                  <%= @results.dig("choices", index, "message", "content").html_safe %>
-                </div>
-              </div>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link <%= 'active' if index == 0 %>"
+                  id="option-<%= index %>"
+                  data-bs-toggle="tab"
+                  data-bs-target="#option-<%= index %>-pane"
+                  type="button"
+                  role="tab"
+                  aria-controls="option-<%= index %>-pane"
+                  aria-selected="true"
+                >
+                  Option <%= index + 1 %>
+                </button>
+              </li>
             <% end %>
-          </div>
+          <% end %>
+        </ul>
+        <div class="ms-auto">
+          <span class="badge text-bg-success text-white fw-normal">
+          <i class="bi bi-check2-square">
+            <span class="visually-hidden">
+              Eidtor enabled
+            </span>
+          </i>
+          Post editor enabled
+          </span>
+        </div>
+      </div>
+      <%= card(classes: 'text-start card--editor') do %>
+        <% begin %>
+          <% if @results.dig("choices").length == 1 %>
+            <%= form.text_area("post[content]",
+              value: @results.dig("choices", 0, "message", "content"),
+              class: 'form-control border-0 editable'
+            ) %>
+          <% end %>
+          <% if @results.dig("choices").length > 1 %>
+            <div class="tab-content" id="optionsTabsContent">
+              <% @results.dig("choices").length.times do | index | %>
+                <div
+                  class="tab-pane fade <%= 'show active' if index == 0 %>"
+                  id="option-<%= index %>-pane"
+                  role="tabpanel"
+                  aria-labelledby="option-<%= index %>"
+                  tabindex="0"
+                >
+                  <%= form.text_area("post[content][#{index}]",
+                    value: @results.dig("choices", index, "message", "content"),
+                    class: 'form-control editable'
+                  ) %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        <% rescue => e %>
+          <h2 class="mt-3">Awesome-o could not compute... Please try again.</h2>
         <% end %>
-      <% rescue => e %>
-        <h2 class="mt-3">Awesome-o could not compute... Please try again.</h2>
       <% end %>
     <% end %>
+    <script>
+    (() => {
+      new MediumEditor('.editable', {
+        buttonLabels: false,
+        toolbar: {
+          buttons: [
+            'h1',
+            'h2',
+            'h3',
+            'anchor',
+            'bold',
+            'italic',
+            'unorderedlist',
+            'orderedlist'
+          ]
+        }
+      })
+    })()
+    </script>
   <% end %>
-  <script>
-  (() => {
-    new MediumEditor('.editable', {
-      buttonLabels: false,
-      toolbar: {
-        buttons: [
-          'h1',
-          'h2',
-          'h3',
-          'anchor',
-          'bold',
-          'italic',
-          'unorderedlist',
-          'orderedlist'
-        ]
-      }
-    })
-  })()
-  </script>
 <% end %>
 
 <%# Add results actions %>
-<%= form_with(url: '/none') do |form| %>
+<%= form_with do |form| %>
   <%= turbo_stream.replace('results-actions') do %>
-    <div class="wall__footer border-top">
+    <div class="wall__footer border-top d-flex">
+      <%= form.text_field("post[title]", class: 'form-control me-3') %>
       <%= form.submit('Save post', class: 'btn btn-primary text-white') %>
     </div>
   <% end %>

@@ -102,9 +102,11 @@
         </div>
       <% end %>
     </div>
-    <%= form_with(url: '/testURL',
+    <%= form_with(model: Post.new,
+      scope: 'post',
       class: 'wall w-50',
       data: {
+        scope: :post,
         action: 'submit->placeholder#showSkeleton'
       }
     ) do |form| %>

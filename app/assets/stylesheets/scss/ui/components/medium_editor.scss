@@ -3,7 +3,11 @@
     outline: 0;
   }
 }
-
+.card--editor {
+  .card-body {
+    padding: 0;
+  }
+}
 .medium-editor-toolbar {
   background-color: #242424;
   background: $primary_dark;
