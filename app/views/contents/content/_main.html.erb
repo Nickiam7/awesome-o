@@ -1,0 +1,46 @@
+<%= form_with(model: Post.new,
+  scope: 'post',
+  class: 'wall w-50',
+  data: {
+    action: 'submit->placeholder#showSkeleton'
+  }
+) do |form| %>
+<div class="wall wall--content p-0">
+  <div class="wall__heading" id="content-heading">
+    <div class="form-group mt-4" data-placeholder-target="message">
+      <%= panel_item do %>
+        <div class="text-start ">
+        <%= form.label(:message, 'What?', class: 'visually-hidden') %>
+        <%= form.text_area(:message,
+          placeholder: 'Tell Awesome-o what kind of blog post you want!',
+          class: 'form-control border',
+          rows: 10,
+          data: {
+            create_panel_target: :messageInput,
+            action: 'input->create-panel#updateMessage'
+          }
+        ) %>
+        </div>
+        <div class="d-flex justify-content-between align-items-center pt-1">
+          <div data-create-panel-target="messageFeedback"></div>
+          <span
+            style="font-size: 0.75rem;"
+            class="btn btn-link text-danger fw-bold" data-action="click->create-panel#resetPrompt">
+              Reset Prompt
+          </span>
+        </div>
+      <% end %>
+      <div data-create-panel-target="templateMessage"></div>
+    </div>
+  </div>
+  <div class="wall__body">
+    <div
+      id="chat-results"
+      class="container"
+      data-placeholder-target="results"
+    ></div>
+  </div>
+  <div class="wall__footer" id="results-actions">
+  </div>
+</div>
+<% end %>
