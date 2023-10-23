@@ -81,3 +81,8 @@
     display: none;
   }
 }
+
+#post-builder .medium-editor-element {
+  height: 75vh;
+  overflow-y: scroll;
+}

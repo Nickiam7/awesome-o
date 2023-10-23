@@ -1,0 +1,17 @@
+<div class="card tool border-0">
+  <div class="card-body p-0 shadow-sm mx-3 mb-3">
+  <%= link_to(@path,
+    class: 'link-underline link-underline-opacity-0',
+    data: {
+      turbo_frame: 'post-tools'
+    }
+  ) do %>
+    <div class="tool__icon fs-3">
+      <i class="bi bi-<%= @icon %>"></i>
+      <h3 class="h6 text-dark">
+        <%= @name %>
+      </h3>
+    </div>
+  <% end %>
+  </div>
+</div>

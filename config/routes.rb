@@ -5,12 +5,14 @@ Rails.application.routes.draw do
 
   post '/gpt_chat', to: 'contents#gpt_chat'
 
+  # components
+  get '/post_builder', to: 'contents#post_builder'
+
   resources :posts
   resources :contents, path: :content do
     collection do
       get 'blog'
       get 'start'
-      get 'auto-awesome'
     end
   end
 

@@ -3,8 +3,7 @@ class ContentsController < ApplicationController
 
   def new;end
   def blog;end
-  def auto_awesome;end
-  def edit_message_response;end
+  def post_builder;end
 
   def gpt_chat
     chat_message = GptChat.new

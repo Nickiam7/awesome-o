@@ -1,0 +1,50 @@
+<%= turbo_frame_tag('post-tools') do %>
+<%= panel_item do %>
+  <div class="d-flex align-items-center justify-content-between post-builder">
+    <h3 class="h6 mb-0">
+      <i class="bi bi-tools text-primary"></i> Builder
+    </h3>
+    <%= link_to(blog_contents_path) do %>
+      <i class="bi bi-x-square-fill text-danger"></i>
+    <% end %>
+  </div>
+  <%= form_with(model: Post.new, id: 'post-builder') do |form| %>
+    <%= form.label(:message, 'What?', class: 'visually-hidden') %>
+    <%= form.text_area(:content,
+      placeholder: 'Build your post here!',
+      class: 'form-control border editable text-start'
+
+    ) %>
+
+    <div class="d-flex mt-3">
+      <%= form.text_field(:title,
+        class: 'form-control me-2',
+        placeholder: 'Title'
+      ) %>
+      <%= form.submit('Save post', class: 'btn btn-primary text-white') %>
+    </div>
+  <% end %>
+<% end %>
+<script>
+(() => {
+  new MediumEditor('.editable', {
+    buttonLabels: false,
+    placeholder: {
+      text: 'Build your post here!'
+    },
+    toolbar: {
+      buttons: [
+        'h1',
+        'h2',
+        'h3',
+        'anchor',
+        'bold',
+        'italic',
+        'unorderedlist',
+        'orderedlist'
+      ]
+    }
+  })
+})()
+</script>
+<% end %>
