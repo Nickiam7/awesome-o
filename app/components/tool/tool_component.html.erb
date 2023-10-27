@@ -3,12 +3,12 @@
   <%= link_to(@path,
     class: 'link-underline link-underline-opacity-0',
     data: {
-      turbo_frame: 'post-tools'
+      turbo_frame: @frame
     }
   ) do %>
     <div class="tool__icon fs-3">
       <i class="bi bi-<%= @icon %>"></i>
-      <h3 class="h6 text-dark">
+      <h3 class="h6">
         <%= @name %>
       </h3>
     </div>

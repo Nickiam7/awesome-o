@@ -1,3 +1,19 @@
+.tools{
+  &.tools--disabled {
+    transition: $primary_transition;
+    pointer-events: none;
+    cursor: not-allowed;
+
+    .card-body {
+      box-shadow: none !important;
+
+      h3,
+      a {
+        color: $gray-400;
+      }
+    }
+  }
+}
 .tool {
   &.card {
     background-color: transparent;
@@ -8,12 +24,16 @@
     a h3 {
       text-decoration: none;
     }
+    h3 {
+      color: $primary_dark;
+    }
     &:hover {
       box-shadow: $shadow !important;
     }
   }
   display: flex;
-  width: 33%;
+  flex: 1 0 50%;
+
   justify-content: space-between;
   &__icon {
     display: flex;

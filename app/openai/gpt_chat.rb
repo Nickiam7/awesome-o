@@ -31,4 +31,28 @@ class GptChat < OpenaiApplication
       "Awesome-o encountered an error. Please try again."
     end
   end
+
+  def rewrite(params = {})
+    begin
+    response = openai_client.chat(
+      parameters: {
+        model: 'gpt-3.5-turbo',
+        n: 1,
+        temperature: 0,
+        messages: [
+          {
+            role: 'system',
+            content: 'You are a talented content creator that can come up with new great content based off provided text.'
+          },
+          {
+            role: 'user',
+            content: "Please write more content for the following text #{params[:text]}."
+          }
+        ]
+      }
+    )
+    rescue => e
+      "Awesome-o encountered an error. Please try again."
+    end
+  end
 end

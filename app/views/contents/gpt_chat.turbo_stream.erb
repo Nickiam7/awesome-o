@@ -1,6 +1,14 @@
 <%# Remove header %>
 <%= turbo_stream.remove('content-heading') %>
 
+<%= turbo_stream.replace('create-form') do %>
+  <%= render(partial: 'contents/tools/tools') %>
+<% end %>
+
+<%= turbo_stream.replace('post-builder') do %>
+  <%= render(partial: 'contents/post_help') %>
+<% end %>
+
 <%# Add results from response %>
 <%= form_with do |form| %>
   <%= turbo_stream.replace('chat-results') do %>
@@ -26,9 +34,8 @@
             <% end %>
           <% end %>
         </ul>
-        <div class="ms-auto">
-          <span class="badge text-bg-success text-white fw-normal">
-          <i class="bi bi-check2-square">
+        <div class="ms-auto small">
+          <i class="bi bi-check2-square text-success">
             <span class="visually-hidden">
               Eidtor enabled
             </span>

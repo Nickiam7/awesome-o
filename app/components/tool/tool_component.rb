@@ -5,6 +5,7 @@ module Tool
     def initialize(**options)
       @name = options[:name]
       @icon = options[:icon]
+      @frame = options[:frame] || 'post-tools'
       @path = options[:path]
     end
   end

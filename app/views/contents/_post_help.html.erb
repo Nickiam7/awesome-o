@@ -1,0 +1,49 @@
+<%= turbo_frame_tag('post-builder') do %>
+<div class="wall__heading pb-0">
+  <%= h(tag: 'h2', classes: 'lead fw-bold') do %>
+    <i class="bi bi-info-square"></i> Tools Help
+  <% end %>
+</div>
+<div class="wall__body">
+  <%= card(classes: 'shadow-sm') do %>
+    <p>Now that Awesome-o has returned a post it's time for you to review and making edits where needed. Awesome-o platform provides a handful of useful tool to make your post perfect!</p>
+
+    <div class="mb-3">
+      <h3 class="h5 mb-0">
+        <i class="bi bi-tools text-primary"></i> Post Builder
+      </h3>
+      <p class="small">The Post Builder is an extra editor that allows you take content from Awesome-o's response and build upon it. This works great when you ask Awesome-o to create multiple version of a post. You can take the best pieces from each version and add it to the post builder.</p>
+    </div>
+    <div>
+      <h3 class="h5 mb-0">
+        <i class="bi bi-arrow-repeat text-primary"></i> Rewrite
+      </h3>
+      <p class="small">There may be a section or chunk of text that you would like Awesome-o to take another pass at. Simply copy the text into the Rewrite tool and Awesome-o will give it another go. You can keep trying until Awesome-o gets it right!</p>
+    </div>
+    <div>
+      <h3 class="h5 mb-0">
+        <i class="bi bi-paragraph text-primary"></i> Paragraph
+      </h3>
+      <p class="small">The Paragraph tool is a great way to add additional content to post created my Awesome-o. You can prompt Awesome-o what to write or you can use the overall content on the returned post.</p>
+    </div>
+    <div>
+      <h3 class="h5 mb-0">
+        <i class="bi bi-lightbulb text-primary"></i> Post title
+      </h3>
+      <p class="small">Awesome-o can generate a title for your post. You can either prompt Awesome-o or you can use the overall content on the returned post.</p>
+    </div>
+    <div>
+      <h3 class="h5 mb-0">
+        <i class="bi bi-gear-wide-connected text-primary"></i> Components
+      </h3>
+      <p class="small">Awesome-o can generate HTML UI elements such as cards, tables, accordians and more. You will need to have format set to HTML, and select a css framework when first generating your post.</p>
+    </div>
+    <div>
+      <h3 class="h5 mb-0">
+        <i class="bi bi-gear-wide-connected text-primary"></i> Image
+      </h3>
+      <p class="small">Awesome-o can generate a post image and a thumbnail image for you! You can either prompt Awesome-o or you can use the overall content on the returned post.</p>
+    </div>
+  <% end %>
+</div>
+<% end %>

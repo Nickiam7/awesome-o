@@ -1,8 +1,9 @@
 <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
 <main data-controller="create-panel">
   <div class="walls" data-controller="placeholder">
-    <div class="wall wall--controls shadow">
+    <div class="wall wall--controls shadow me-3">
       <%= form_with(url: gpt_chat_path,
+          id: 'create-form',
           class: 'wall p-0',
           data: {
             action: 'submit->placeholder#showSkeleton'

@@ -1,21 +1,10 @@
-<div class="wall__heading pb-0 d-flex align-items-center">
-  <%= h(tag: 'h2', text: 'Tools panel', classes: 'lead fw-bold') %>
-  <%= tooltip(placement: 'right',
-    classes: 'small ms-2 mb-2',
-    message: 'These tools are to help you fine-tune your post results before saving it to your account. You\'ll have access to these tools from the edit post page as well.'
-  ) %>
-</div>
-<div class="wall__body">
-  <%= turbo_frame_tag('post-tools') do %>
-  <div class="d-flex flex-wrap">
-    <%= tool(name: 'Post Builder', icon: 'tools', path: post_builder_path) %>
-    <%= tool(name: 'Rewrite', icon: 'arrow-repeat') %>
-    <%= tool(name: 'Paragraph', icon: 'paragraph') %>
-    <%= tool(name: 'Post Title', icon: 'lightbulb') %>
-    <%= tool(name: 'FAQ', icon: 'question-lg') %>
-    <%= tool(name: 'Image', icon: 'card-image') %>
+<%= turbo_frame_tag('post-builder') do %>
+  <div class="wall__heading pb-0">
+    <%= h(tag: 'h2', classes: 'lead fw-bold') do %>
+      <i class="bi bi-info-square"></i> Tips and Best Practices
+    <% end %>
   </div>
+  <%= card(classes: 'shadow-sm') do %>
+    While Awesome-o is incredibly talented at writing SEO friendly blog post with little direction, the more info you provide, the higher probablity of you getting a more precise post! Below are some helpful tips and best practices to help you, help Awesome-o!
   <% end %>
-</div>
-<div class="wall__footer">
-</div>
+<% end %>

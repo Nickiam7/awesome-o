@@ -3,11 +3,15 @@ class ContentsController < ApplicationController
 
   def new;end
   def blog;end
-  def post_builder;end
 
   def gpt_chat
     chat_message = GptChat.new
     @results = chat_message.chat(chat_params)
+  end
+
+  def content_rewrite
+    chat_rewrite = GptChat.new
+    @results = chat_rewrite.rewrite(rewrite_params)
   end
 
   private
@@ -26,6 +30,12 @@ class ContentsController < ApplicationController
       formatting: params[:formatting],
       css_framework: params[:css_framework],
       tone: params[:tone],
+    }
+  end
+
+  def rewrite_params
+    {
+      text: params[:text]
     }
   end
 end
