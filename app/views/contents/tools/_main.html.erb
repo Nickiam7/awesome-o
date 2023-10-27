@@ -1,21 +1,8 @@
 <div class="wall__heading pb-0 d-flex align-items-center">
-  <%= h(tag: 'h2', text: 'Tools panel', classes: 'lead fw-bold') %>
-  <%= tooltip(placement: 'right',
-    classes: 'small ms-2 mb-2',
-    message: 'These tools are to help you fine-tune your post results before saving it to your account. You\'ll have access to these tools from the edit post page as well.'
-  ) %>
+
 </div>
 <div class="wall__body">
-  <%= turbo_frame_tag('post-tools') do %>
-  <div class="d-flex flex-wrap">
-    <%= tool(name: 'Post Builder', icon: 'tools', path: post_builder_path) %>
-    <%= tool(name: 'Rewrite', icon: 'arrow-repeat') %>
-    <%= tool(name: 'Paragraph', icon: 'paragraph') %>
-    <%= tool(name: 'Post Title', icon: 'lightbulb') %>
-    <%= tool(name: 'FAQ', icon: 'question-lg') %>
-    <%= tool(name: 'Image', icon: 'card-image') %>
-  </div>
-  <% end %>
+  <%= turbo_frame_tag('post-builder') %>
 </div>
 <div class="wall__footer">
 </div>

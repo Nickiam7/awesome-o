@@ -1,10 +1,6 @@
 class ContentsController < ApplicationController
   before_action :authenticate_user!
 
-  def new;end
-  def blog;end
-  def post_builder;end
-
   def gpt_chat
     chat_message = GptChat.new
     @results = chat_message.chat(chat_params)

@@ -6,6 +6,7 @@ module Tool
       @name = options[:name]
       @icon = options[:icon]
       @path = options[:path]
+      @frame = options[:frame]
     end
   end
 end

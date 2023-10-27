@@ -1,6 +1,10 @@
 <%# Remove header %>
 <%= turbo_stream.remove('content-heading') %>
 
+<%= turbo_stream.replace('create-form') do %>
+  <%= render(template: 'contents/tools/tools') %>
+<% end %>
+
 <%# Add results from response %>
 <%= form_with do |form| %>
   <%= turbo_stream.replace('chat-results') do %>

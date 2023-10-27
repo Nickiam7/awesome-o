@@ -1,4 +1,4 @@
-<%= turbo_frame_tag('post-tools') do %>
+<%= turbo_frame_tag('post-builder') do %>
 <%= panel_item do %>
   <div class="d-flex align-items-center justify-content-between post-builder">
     <h3 class="h6 mb-0">
@@ -29,6 +29,11 @@
 (() => {
   new MediumEditor('.editable', {
     buttonLabels: false,
+    paste: {
+      forcePlainText: false,
+      cleanPastedHTML: true,
+      cleanAttrs: ['style'],
+    },
     placeholder: {
       text: 'Build your post here!'
     },

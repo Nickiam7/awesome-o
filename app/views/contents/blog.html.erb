@@ -4,6 +4,7 @@
     <div class="wall wall--controls shadow">
       <%= form_with(url: gpt_chat_path,
           class: 'wall p-0',
+          id: 'create-form',
           data: {
             action: 'submit->placeholder#showSkeleton'
           }
