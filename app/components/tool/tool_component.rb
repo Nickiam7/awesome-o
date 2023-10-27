@@ -6,7 +6,7 @@ module Tool
       @name = options[:name]
       @icon = options[:icon]
       @path = options[:path]
-      @frame = options[:frame]
+      @frame = options[:frame] || 'post-tools'
     end
   end
 end

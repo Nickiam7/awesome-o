@@ -1,0 +1,28 @@
+<%= turbo_frame_tag('post-tools') do %>
+<%= panel_item do %>
+  <div class="d-flex align-items-center justify-content-between post-builder">
+    <h3 class="h6 mb-0">
+      <i class="bi bi-arrow-repeat text-primary"></i> Rewrite
+    </h3>
+    <%= link_to(post_tools_path,
+      data: {
+        turbo_frame: 'post-tools'
+      }) do %>
+      <i class="bi bi-x-square-fill text-danger"></i>
+    <% end %>
+  </div>
+  <%= form_with(url: gpt_rewrite_path, id: 'content-rewrite') do |form| %>
+    <%= form.label(:text, 'What?', class: 'visually-hidden') %>
+    <%= form.text_area(:content_rewrite,
+      placeholder: 'Paste in text you want Awesome-o to rewrite.',
+      class: 'form-control border text-start',
+      rows: 10
+    ) %>
+    <div class="mt-3">
+      <%= form.submit('Rewrite', class: 'btn btn-primary text-white') %>
+    </div>
+  <% end %>
+<% end %>
+
+<div id="rewrite-response"></div>
+<% end %>

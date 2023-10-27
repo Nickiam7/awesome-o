@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about'
 
   post '/gpt_chat', to: 'contents#gpt_chat'
+  post '/gpt_rewrite', to: 'contents#gpt_rewrite'
 
-  # components
+  # tools
+  get '/post_tools', to: 'contents#post_tools'
   get '/post_builder', to: 'contents#post_builder'
+  get '/content_rewrite', to: 'contents#content_rewrite'
 
   resources :posts
   resources :contents, path: :content do
