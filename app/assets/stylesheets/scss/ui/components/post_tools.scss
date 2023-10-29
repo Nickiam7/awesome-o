@@ -25,10 +25,21 @@
     }
   }
 }
-
 .post-builder {
   position: sticky;
   top: -14px;
   z-index: 1;
   background-color: $gray-100;
+}
+.footer-tools {
+  .footer-tool {
+    padding: 0.25rem 1rem;
+    transition: $primary_transition;
+    color: $primary;
+    font-size: 1.25rem;
+    &:hover {
+      background-color: $gray-100;
+      cursor: pointer;
+    }
+  }
 }

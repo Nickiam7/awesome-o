@@ -2,7 +2,9 @@
 <%= turbo_stream.remove('content-heading') %>
 
 <%= turbo_stream.replace('create-form') do %>
-  <%= render(template: 'contents/post_tools') %>
+  <div class="p-0">
+    <%= render(template: 'contents/post_tools') %>
+  </div>
 <% end %>
 
 <%# Add results from response %>
