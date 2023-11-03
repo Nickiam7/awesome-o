@@ -56,7 +56,11 @@
   <div class="wall_footer border-top">
     <div class="d-flex justify-content-between footer-tools">
       <div class="footer-tool">
-        <%= link_to(post_builder_path, data: {turbo_frame: 'post-builder'}) do %>
+        <%= link_to(post_builder_path,
+          data: {
+            turbo_frame: 'post-builder'
+          }
+        ) do %>
           <i class="bi bi-tools"></i>
         <% end %>
       </div>

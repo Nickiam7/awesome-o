@@ -1,10 +1,15 @@
 <%# Remove header %>
 <%= turbo_stream.remove('content-heading') %>
 
+<% begin %>
+<% if @results.dig("choices").present? %>
 <%= turbo_stream.replace('create-form') do %>
   <div class="p-0">
     <%= render(template: 'contents/post_tools') %>
   </div>
+<% end %>
+<% end %>
+<% rescue %>
 <% end %>
 
 <%# Add results from response %>
@@ -13,6 +18,7 @@
     <%= panel_item(id: 'post-results') do %>
       <div id="optionsTabs" class="d-flex align-items-center justify-content-between">
         <ul class="nav nav-tabs border-none" role="tablist">
+          <% begin %>
           <% if @results.dig("choices").length > 1 %>
             <% @results.dig("choices").length.times do | index | %>
               <li class="nav-item" role="presentation">
@@ -31,7 +37,10 @@
               </li>
             <% end %>
           <% end %>
+          <% rescue %>
+          <% end %>
         </ul>
+        <% if @results.dig("choices").present? %>
         <div class="ms-auto small">
           <i class="bi bi-check2-square text-success">
             <span class="visually-hidden">
@@ -41,6 +50,7 @@
           Post editor enabled
           </span>
         </div>
+        <% end %>
       </div>
       <%= card(classes: 'text-start card--editor') do %>
         <% begin %>
@@ -69,7 +79,11 @@
             </div>
           <% end %>
         <% rescue => e %>
-          <h2 class="mt-3">Awesome-o could not compute... Please try again.</h2>
+          <div class="p-3">
+            <h2 class="mt-3">
+              Awesome-o could not compute... Please <%= link_to('try again', blog_contents_path) %>.
+            </h2>
+          </div>
         <% end %>
       <% end %>
     <% end %>
@@ -96,6 +110,8 @@
 <% end %>
 
 <%# Add results actions %>
+<% begin %>
+<% if @results.dig("choices").present? %>
 <%= form_with do |form| %>
   <%= turbo_stream.replace('results-actions') do %>
     <div class="wall__footer border-top d-flex">
@@ -103,4 +119,7 @@
       <%= form.submit('Save post', class: 'btn btn-primary text-white') %>
     </div>
   <% end %>
+<% end %>
+<% end %>
+<% rescue %>
 <% end %>

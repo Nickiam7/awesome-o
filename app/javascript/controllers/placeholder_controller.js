@@ -1,5 +1,5 @@
 import { Controller } from '@hotwired/stimulus'
-import { resultsPlaceholder } from '../shared/placeholders'
+import { awesomeO } from '../shared/placeholders'
 
 class PlaceholderController extends Controller {
   static targets = [
@@ -8,12 +8,8 @@ class PlaceholderController extends Controller {
     'form'
   ]
 
-  connect() {
-    console.log('AHAHAHAHAH')
-  }
-
   showSkeleton() {
-    this.resultsTarget.innerHTML = resultsPlaceholder
+    this.resultsTarget.innerHTML = awesomeO
     this.messageTarget.classList.add('d-none')
   }
 
