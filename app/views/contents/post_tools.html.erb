@@ -5,9 +5,19 @@
   <% end %>
 </div>
 <div class="d-flex flex-wrap tools">
-  <%= tool(name: 'Post Builder', icon: 'tools', path: post_builder_path, frame: 'post-builder') %>
-  <%= tool(name: 'Rewrite', icon: 'arrow-repeat', path: content_rewrite_path,) %>
-  <%= tool(name: 'Paragraph', icon: 'paragraph') %>
+  <%= tool(name: 'Post Builder',
+    icon: 'tools',
+    path: post_builder_path,
+    frame: 'post-builder'
+  ) %>
+  <%= tool(name: 'Rewrite',
+    icon: 'arrow-repeat',
+    path: content_rewrite_path
+  ) %>
+  <%= tool(name: 'Paragraph',
+    icon: 'paragraph',
+    path: content_paragraph_path,
+  ) %>
   <%= tool(name: 'Post Title', icon: 'lightbulb') %>
   <%= tool(name: 'Components', icon: 'gear-wide-connected') %>
   <%= tool(name: 'Image', icon: 'card-image') %>

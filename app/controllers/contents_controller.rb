@@ -11,6 +11,11 @@ class ContentsController < ApplicationController
     @results = content.rewrite(content_params)
   end
 
+  def gpt_paragraph
+    paragraph = GptChat.new
+    @results = paragraph.paragraph(paragraph_params)
+  end
+
   private
 
   def chat_params
@@ -33,6 +38,15 @@ class ContentsController < ApplicationController
   def content_params
     {
       content_rewrite: params[:content_rewrite],
+      min_count: params[:min_count],
+      max_count: params[:max_count],
+    }
+  end
+
+  def paragraph_params
+    {
+      content_pargraph: params[:content_pargraph],
+      content_source: params[:content_source],
       min_count: params[:min_count],
       max_count: params[:max_count],
     }

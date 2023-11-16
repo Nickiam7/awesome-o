@@ -6,12 +6,17 @@ module Prompt::Formatting
       if format == 'raw'
         "Please generate this post as raw text. Please do not include any HTML."
       else
-        "Please format this post using valid HTML syntax that ensures all Web Accessibility standards are met. Please use appropriate heading tags including h1 for titles and h2 for subsections and h3 through h6 as necssary. Also, please use 'p' tags for paragrah text. Please include any applicable aria attributes. Please exclude meta tags and title tags."
+        format_html
       end
     end
 
     def css_framework(framework)
       css_frameworks[framework.to_sym]
+    end
+
+    def format_html
+      "Please format this post using valid HTML syntax that ensures all Web Accessibility standards are met. Please use appropriate heading tags including h1 for titles and h2 for subsections and h3 through h6 as necssary. Also, please use 'p' tags for paragrah text. Please include any applicable aria attributes. Please exclude meta tags and title tags.\n
+      Please do not include a DOCTYPE, html, head or body tag. Do not include any links to 3rd party CDNs."
     end
 
     private
@@ -30,6 +35,4 @@ module Prompt::Formatting
       }
     end
   end
-
-
 end

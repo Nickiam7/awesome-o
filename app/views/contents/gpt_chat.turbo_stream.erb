@@ -1,13 +1,14 @@
 <%# Remove header %>
 <%= turbo_stream.remove('content-heading') %>
 
+<%# Swap create panel with post tools %>
 <% begin %>
 <% if @results.dig("choices").present? %>
-<%= turbo_stream.replace('create-form') do %>
-  <div class="p-0">
-    <%= render(template: 'contents/post_tools') %>
-  </div>
-<% end %>
+  <%= turbo_stream.replace('create-form') do %>
+    <div class="p-0">
+      <%= render(template: 'contents/post_tools') %>
+    </div>
+  <% end %>
 <% end %>
 <% rescue %>
 <% end %>

@@ -13,5 +13,11 @@ application.register("placeholder", PlaceholderController)
 import CreatePanelController from "./create_panel_controller"
 application.register("create-panel", CreatePanelController)
 
+import PostToolsController from "./post_tools"
+application.register("post-tools", PostToolsController)
+
+import ContentParagraphController from "./content_paragraph_controller"
+application.register("content-paragraph", ContentParagraphController)
+
 import DevController from "./dev_controller"
 application.register("dev", DevController)

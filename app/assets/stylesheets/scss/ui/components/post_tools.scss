@@ -31,6 +31,15 @@
   z-index: 1;
   background-color: $gray-100;
 }
+.wall__header .hide-tool {
+  transition: $primary_transition;
+  height: 30px;
+  overflow-y: hidden;
+}
+.tool-vis {
+  cursor: pointer;
+}
+
 .footer-tools {
   .footer-tool {
     padding: 0.25rem 1rem;
