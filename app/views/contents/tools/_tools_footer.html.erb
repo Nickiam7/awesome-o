@@ -1,0 +1,32 @@
+<div class="d-flex justify-content-between footer-tools">
+  <div class="footer-tool">
+    <%= link_to(post_builder_path,
+      data: {
+        turbo_frame: 'post-builder'
+      }
+    ) do %>
+      <i class="bi bi-tools"></i>
+    <% end %>
+  </div>
+  <div class="footer-tool">
+    <%= link_to(content_rewrite_path) do %>
+      <i class="bi bi-arrow-repeat"></i>
+    <% end %>
+  </div>
+  <div class="footer-tool">
+    <%= link_to(content_paragraph_path) do %>
+      <i class="bi bi-paragraph"></i>
+    <% end %>
+  </div>
+  <div class="footer-tool">
+    <%= link_to(content_title_path) do %>
+      <i class="bi bi-lightbulb"></i>
+    <% end %>
+  </div>
+  <div class="footer-tool">
+    <i class="bi bi-gear-wide-connected"></i>
+  </div>
+  <div class="footer-tool">
+    <i class="bi bi-card-image"></i>
+  </div>
+</div>

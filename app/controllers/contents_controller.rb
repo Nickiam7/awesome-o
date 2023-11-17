@@ -16,6 +16,11 @@ class ContentsController < ApplicationController
     @results = paragraph.paragraph(paragraph_params)
   end
 
+  def gpt_title
+    title = GptChat.new
+    @results = title.title(title_params)
+  end
+
   private
 
   def chat_params
@@ -49,6 +54,13 @@ class ContentsController < ApplicationController
       content_source: params[:content_source],
       min_count: params[:min_count],
       max_count: params[:max_count],
+    }
+  end
+
+  def title_params
+    {
+      content_title: params[:content_title],
+      content_source: params[:content_source],
     }
   end
 end

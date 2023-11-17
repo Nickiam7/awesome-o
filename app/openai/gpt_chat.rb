@@ -68,4 +68,24 @@ class GptChat < OpenaiApplication
       }
     )
   end
+
+  def title(params = {})
+    response = openai_client.chat(
+      parameters: {
+        model: 'gpt-4',
+        n: 1,
+        temperature: 1,
+        messages: [
+          {
+            role: 'user',
+            content: "Based off the provided text please create an SEO friendly title for a blog post.\n
+            Only provide a blog post title. Please do generate any additional text or an actual blog post. Just a title.\n
+            The title should be descriptive, engaging and relevant to the provided text.
+            provided text: #{params[:content_title]}.\n
+            #{Prompt::Formatting.format_html}. Please exclude h1 tags"
+          }
+        ]
+      }
+    )
+  end
 end

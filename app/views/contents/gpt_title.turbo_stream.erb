@@ -1,0 +1,5 @@
+<%= turbo_stream.remove('spinner') %>
+
+<%= turbo_stream.append('title-response') do %>
+  <%= @results.dig("choices", 0, "message", "content").html_safe %>
+<% end %>
