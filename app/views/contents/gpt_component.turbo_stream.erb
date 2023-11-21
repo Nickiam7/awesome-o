@@ -1,0 +1,7 @@
+<%= turbo_stream.remove('spinner') %>
+
+<%= turbo_stream.append('component-response') do %>
+  <div draggable="true">
+    <%= @results.dig("choices", 0, "message", "content").html_safe %>
+  </div>
+<% end %>

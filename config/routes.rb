@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post '/gpt_rewrite', to: 'contents#gpt_rewrite'
   post '/gpt_paragraph', to: 'contents#gpt_paragraph'
   post '/gpt_title', to: 'contents#gpt_title'
+  post '/gpt_component', to: 'contents#gpt_component'
 
   # tools views
   get '/post_tools', to: 'contents#post_tools'
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
   get '/content_rewrite', to: 'contents#content_rewrite'
   get '/content_paragraph', to: 'contents#content_paragraph'
   get '/content_title', to: 'contents#content_title'
+  get '/content_component', to: 'contents#content_component'
 
   resources :posts
   resources :contents, path: :content do

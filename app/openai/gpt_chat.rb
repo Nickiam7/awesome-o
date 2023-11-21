@@ -88,4 +88,27 @@ class GptChat < OpenaiApplication
       }
     )
   end
+
+  def component(params = {})
+    response = openai_client.chat(
+      parameters: {
+        model: 'gpt-4',
+        n: 1,
+        temperature: 0,
+        messages: [
+          role: 'user',
+          content: "Please generate a #{params[:component_name]} using web standards compliant HTML.\n
+          Please use appropriate CSS selectors.\n
+          Please do NOT include any JavaScript or jQuery.\n
+          Please do NOT render markdown.\n
+          Please do NOT include any links to third party CDNs.\n
+          Please do NOT include an explanation of the code. Only provide the relevant HTML.\n
+          Please do NOT include any explanation or any extra text at all. Only the necessary HTML to create the component.
+          #{Prompt::Formatting.format_html}.\n
+          #{params[:css_framework].nil? ? '' : "Please format using the appropriate CSS selctor tags from the #{params[:css_framework]}CSS framework"}.
+          "
+        ]
+      }
+    )
+  end
 end
