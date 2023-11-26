@@ -7,13 +7,12 @@ class ContentParagraphController extends Controller {
   ]
 
   connect() {
-    const resp = document.getElementsByName('post[content]')[0].textContent
-    console.log(resp)
+    document.getElementById('postContent').textContent
   }
 
   setContentSource() {
     if(this.sourceSwitchTarget.checked) {
-      this.contentInputTarget.value = document.getElementsByName('post[content]')[0].textContent
+      this.contentInputTarget.value = document.getElementById('postContent').textContent
     } else {
       this.contentInputTarget.value = ''
     }

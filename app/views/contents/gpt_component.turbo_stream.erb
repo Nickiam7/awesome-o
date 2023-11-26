@@ -1,7 +1,11 @@
 <%= turbo_stream.remove('spinner') %>
 
 <%= turbo_stream.append('component-response') do %>
-  <div draggable="true">
+  <div
+    id="src_move"
+    draggable="true"
+    data-action="dragstart->drag-component#dragstart_handler dragend->drag-component#dragend_handler"
+  >
     <%= @results.dig("choices", 0, "message", "content").html_safe %>
   </div>
 <% end %>

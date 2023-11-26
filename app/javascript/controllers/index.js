@@ -21,3 +21,9 @@ application.register("content-paragraph", ContentParagraphController)
 
 import DevController from "./dev_controller"
 application.register("dev", DevController)
+
+import DragComponentController from "./drag_component_controller"
+application.register("drag-component", DragComponentController)
+
+import PostContentController from "./post_content_controller"
+application.register("post-content", PostContentController)

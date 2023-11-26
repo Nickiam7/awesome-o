@@ -1,7 +1,8 @@
 <%= form_with(model: Post.new,
     class: 'wall w-50',
     data: {
-      action: 'submit->placeholder#showSkeleton'
+      controller: 'create-post',
+      action: 'submit->post-content#postContent'
     }
   ) do |form| %>
   <div class="wall wall--content p-0">
@@ -43,4 +44,4 @@
     <div class="wall__footer" id="results-actions">
     </div>
   </div>
-  <% end %>
+<% end %>

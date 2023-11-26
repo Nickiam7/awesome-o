@@ -56,10 +56,19 @@
       <%= card(classes: 'text-start card--editor') do %>
         <% begin %>
           <% if @results.dig("choices").length == 1 %>
-            <%= form.text_area("post[content]",
-              value: @results.dig("choices", 0, "message", "content"),
-              class: 'form-control border-0 editable'
+            <%= form.hidden_field("post[content]",
+              data: {
+                create_post_target: 'hiddenField'
+              }
             ) %>
+            <div
+              id="postContent"
+              class="border-0 editable"
+              data-action="drop->drag-component#drop_handler dragover->drag-component#dragover_handler"
+              data-create-post-target="postContent"
+            >
+              <%= @results.dig("choices", 0, "message", "content").html_safe %>
+            </div>
           <% end %>
           <% if @results.dig("choices").length > 1 %>
             <div class="tab-content" id="optionsTabsContent">

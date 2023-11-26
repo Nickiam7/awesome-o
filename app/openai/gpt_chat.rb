@@ -98,13 +98,19 @@ class GptChat < OpenaiApplication
         messages: [
           role: 'user',
           content: "Please generate a #{params[:component_name]} using web standards compliant HTML.\n
-          Please use appropriate CSS selectors.\n
           Please do NOT include any JavaScript or jQuery.\n
-          Please do NOT render markdown.\n
           Please do NOT include any links to third party CDNs.\n
+          Please do NOT include any links to css files.\n
+          Please do NOT include any inline css.\n
+          Please do NOT include a <style> tag\n
+          Please do NOT include a <link> tag\n
+          Please do NOT include a <title> tag\n
+          Please do NOT include a <meta> tag\n
+          Please do NOT render or include any markdown.\n
+          Please do NOT include markdown code backticks.\n
+          Please do NOT include the following text ```html, ```.\n
           Please do NOT include an explanation of the code. Only provide the relevant HTML.\n
-          Please do NOT include any explanation or any extra text at all. Only the necessary HTML to create the component.
-          #{Prompt::Formatting.format_html}.\n
+          Please do NOT include any explanation or any extra text at all. Only the necessary HTML to create the actual component.\n
           #{params[:css_framework].nil? ? '' : "Please format using the appropriate CSS selctor tags from the #{params[:css_framework]}CSS framework"}.
           "
         ]
